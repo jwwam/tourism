@@ -1,0 +1,743 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<title>Home</title>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Your description"/>
+<meta name="keywords" content="Your keywords"/>
+<meta name="author" content="Your name"/>
+
+<link href="/css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
+<link href="/css/font-awesome.css" th:href="@{/css/font-awesome.css}" rel="stylesheet"/>
+<link href="/css/animate.css" th:href="@{/css/animate.css}" rel="stylesheet"/>
+<link href="/css/select2.css" th:href="@{/css/select2.css}" rel="stylesheet"/>
+<link href="/css/smoothness/jquery-ui-1.10.0.custom.css" th:href="@{/css/smoothness/jquery-ui-1.10.0.custom.css}" rel="stylesheet"/>
+<link href="/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+
+<script src="/js/jquery.js" th:src="@{/js/jquery.js}"></script>
+<script src="/js/jquery-ui.js" th:src="@{/js/jquery-ui.js}"></script>
+<script src="/js/jquery-migrate-1.2.1.min.js" th:src="@{/js/jquery-migrate-1.2.1.min.js}"></script>
+<script src="/js/jquery.easing.1.3.js" th:src="@{/js/jquery.easing.1.3.js}"></script>
+<script src="/js/superfish.js" th:src="@{/js/superfish.js}"></script>
+
+<script src="/js/select2.js" th:src="@{/js/select2.js}"></script>
+<script src="/js/jquery.parallax-1.1.3.resize.js" th:src="@{/js/jquery.parallax-1.1.3.resize.js}"></script>
+<script src="/js/SmoothScroll.js" th:src="@{/js/SmoothScroll.js}"></script>
+<script src="/js/jquery.appear.js" th:src="@{/js/jquery.appear.js}"></script>
+<script src="/js/jquery.caroufredsel.js" th:src="@{/js/jquery.caroufredsel.js}"></script>
+<script src="/js/jquery.touchSwipe.min.js" th:src="@{/js/jquery.touchSwipe.min.js}"></script>
+<script src="/js/jquery.ui.totop.js" th:src="@{/js/jquery.ui.totop.js}"></script>
+<script src="/js/script.js" th:src="@{/js/script.js}"></script>
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body class="front">
+
+<div id="main">
+
+<div class="top1_wrapper">
+  <div class="container">
+    <div class="top1 clearfix">
+      <div class="email1"><a href="#" th:text="${desktop.email}"></a></div>
+      <div class="phone1" th:text="${desktop.iphone}"></div>
+      <div class="social_wrapper">
+        <ul class="social clearfix">
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+          <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+          <li><a href="#"><i class="fa fa-vimeo-square"></i></a></li>
+        </ul>
+      </div>
+      <div class="lang1">
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">English<span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a class="ge" href="#">German</a></li>
+            <li><a class="ru" href="#">Russian</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="top2_wrapper">
+  <div class="container">
+    <div class="top2 clearfix">
+      <header>
+        <div class="logo_wrapper">
+          <a href="index.html" class="logo">
+            <img th:src="@{/images/logo.png}" alt="" class="img-responsive"/>
+          </a>
+        </div>
+      </header>
+      <div class="navbar navbar_ navbar-default">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-collapse navbar-collapse_ collapse">
+          <ul class="nav navbar-nav sf-menu clearfix">
+			<li><a href="../base/index">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="../gallery/view">Gallery</a></li>
+            <li><a href="../scenery/view">Hotels</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="slider_wrapper">
+  <div class="container">
+    <div id="slider_inner">
+      <div class="">
+        <div id="slider">
+
+          <div class="">
+            <div class="carousel-box">
+              <div class="inner">
+                <div class="carousel main">
+                  <ul>
+                    <li th:each="topFlow,topFlowStat : ${topFlowList}">
+                      <div class="slider">
+                        <div class="slider_inner">
+                          <div class="txt1"><span th:text="${topFlow.title}"></span></div>
+                          <div class="txt2"><span th:text="${topFlow.title}"></span></div>
+                          <div class="txt3"><span th:text="${topFlow.title}"></span></div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slider_pagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="front_tabs">
+  <div class="container">
+    <div class="tabs_wrapper tabs1_wrapper">
+      <div class="tabs tabs1">
+        <div class="tabs_tabs tabs1_tabs">
+
+            <ul>
+              <li class="active flights"><a href="#tabs-1">景点查询</a></li>
+              <!--<li class="hotels"><a href="#tabs-2">Hotels</a></li>
+              <li class="cars"><a href="#tabs-3">Cars</a></li>
+              <li class="cruises"><a href="#tabs-4">Cruises</a></li>-->
+            </ul>
+
+        </div>
+        <div class="tabs_content tabs1_content">
+
+            <div id="tabs-1">
+              <form action="../search/getData" id="uploadForm" name="uploadForm" class="form1" method="POST">
+                <div class="row">
+                  <div class="col-lg-10">
+                    <div class="form-group">
+                      <label>detail</label>
+                      <input class="form-control" placeholder="请输入景点名称" name="keyword"/>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 col-md-2">
+                    <div class="button1_wrapper">
+                      <button type="submit" class="btn-default btn-form1-submit">查询</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!--<div id="tabs-2">
+              <form action="javascript:;" class="form1">
+                <div class="row">
+                  <div class="col-sm-4 col-md-4">
+                    <div class="select1_wrapper">
+                      <label>City or Hotel Name:</label>
+                      <div class="select1_inner">
+                        <select class="select2 select" style="width: 100%">
+                          <option value="1">Enter a destination or hotel name</option>
+                          <option value="2">Lorem ipsum dolor sit amet</option>
+                          <option value="3">Duis autem vel eum</option>
+                          <option value="4">Ut wisi enim ad minim veniam</option>
+                          <option value="5">Nam liber tempor cum</option>
+                          <option value="6">At vero eos et accusam et</option>
+                          <option value="7">Consetetur sadipscing elitr</option>
+                          <option value="8">Sed diam nonumy</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 col-md-2">
+                    <div class="input1_wrapper">
+                      <label>Check-In:</label>
+                      <div class="input1_inner">
+                        <input type="text" class="input datepicker" value="Mm/Dd/Yy"/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 col-md-2">
+                    <div class="input1_wrapper">
+                      <label>Check-Out:</label>
+                      <div class="input1_inner">
+                        <input type="text" class="input datepicker" value="Mm/Dd/Yy"/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 col-md-2">
+                    <div class="select1_wrapper">
+                      <label>Adult:</label>
+                      <div class="select1_inner">
+                        <select class="select2 select" style="width: 100%">
+                          <option value="1">Room  for  1  adult</option>
+                          <option value="2">Room  for  2  adult</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 col-md-2">
+                    <div class="button1_wrapper">
+                      <button type="submit" class="btn-default btn-form1-submit">Search</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div id="tabs-3">
+              <form action="javascript:;" class="form1">
+                <div class="row">
+                  <div class="col-sm-4 col-md-2">
+                    <div class="select1_wrapper">
+                      <label>Country:</label>
+                      <div class="select1_inner">
+                        <select class="select2 select" style="width: 100%">
+                          <option value="1">Please Select</option>
+                          <option value="2">Alaska</option>
+                          <option value="3">Bahamas</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 col-md-2">
+                    <div class="select1_wrapper">
+                      <label>City:</label>
+                      <div class="select1_inner">
+                        <select class="select2 select" style="width: 100%">
+                          <option value="1">Please Select</option>
+                          <option value="2">Alaska</option>
+                          <option value="3">Bahamas</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 col-md-2">
+                    <div class="select1_wrapper">
+                      <label>Location:</label>
+                      <div class="select1_inner">
+                        <select class="select2 select" style="width: 100%">
+                          <option value="1">Please Select</option>
+                          <option value="2">Alaska</option>
+                          <option value="3">Bahamas</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 col-md-2">
+                    <div class="input1_wrapper">
+                      <label>Pick up Date:</label>
+                      <div class="input1_inner">
+                        <input type="text" class="input datepicker" value="Mm/Dd/Yy"/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 col-md-2">
+                    <div class="input1_wrapper">
+                      <label>Drop off Date:</label>
+                      <div class="input1_inner">
+                        <input type="text" class="input datepicker" value="Mm/Dd/Yy"/>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="col-sm-4 col-md-2">
+                    <div class="button1_wrapper">
+                      <button type="submit" class="btn-default btn-form1-submit">Search</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div id="tabs-4">
+              <form action="javascript:;" class="form1">
+                <div class="row">
+                  <div class="col-sm-4 col-md-2">
+                    <div class="select1_wrapper">
+                      <label>Sail To:</label>
+                      <div class="select1_inner">
+                        <select class="select2 select" style="width: 100%">
+                          <option value="1">All destinations</option>
+                          <option value="2">Alaska</option>
+                          <option value="3">Bahamas</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 col-md-2">
+                    <div class="select1_wrapper">
+                      <label>Sail From:</label>
+                      <div class="select1_inner">
+                        <select class="select2 select" style="width: 100%">
+                          <option value="1">All ports</option>
+                          <option value="2">Alaska</option>
+                          <option value="3">Bahamas</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-4 col-md-2">
+                    <div class="input1_wrapper">
+                      <label>Start Date:</label>
+                      <div class="input1_inner">
+                        <input type="text" class="input datepicker" value="From any month"/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 col-md-2">
+                    <div class="input1_wrapper">
+                      <label>End of Date:</label>
+                      <div class="input1_inner">
+                        <input type="text" class="input datepicker" value="To any month"/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 col-md-2">
+                    <div class="select1_wrapper">
+                      <label>Cruise Ship:</label>
+                      <div class="select1_inner">
+                        <select class="select2 select" style="width: 100%">
+                          <option value="1">All Ships</option>
+                          <option value="2">Alaska</option>
+                          <option value="3">Bahamas</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="col-sm-4 col-md-2">
+                    <div class="button1_wrapper">
+                      <button type="submit" class="btn-default btn-form1-submit">Search</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>-->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div id="popular_cruises1">
+    <div class="container">
+      <h2 class="animated">POPULAR CRUISES</h2>
+      <div class="title1 animated">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod <br/>tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
+
+      <br/><br/>
+
+      <div id="popular_wrapper" class="animated" data-animation="fadeIn" data-animation-delay="300">
+        <div id="popular_inner">
+          <div class="">
+            <div id="popular">
+              <div class="">
+                <div class="carousel-box">
+                  <div class="inner">
+                    <div class="carousel main">
+                      <ul>
+                        <li th:each="contentFlow,contentFlowStat : ${contentFlowList}">
+                          <div class="popular">
+                            <div class="popular_inner">
+                              <figure>
+                                <img th:src="@{/images/popular01.jpg}" alt="" class="img-responsive"/>
+                                <div class="over">
+                                  <div class="v1">Bahamas 巴拿马1<span>17 Deal Offers</span></div>
+                                  <div class="v2">巴拿马1.</div>
+                                </div>
+                              </figure>
+                              <div class="caption">
+                                <div class="txt1"><span th:text="${contentFlow.title}"></span> 7 Night Tour</div>
+                                <div class="txt2">巴拿马1.</div>
+                                <div class="txt3 clearfix">
+                                  <div class="left_side">
+                                    <div class="stars1">
+                                      <img th:src="@{/images/star1.png}" alt=""/>
+                                      <img th:src="@{/images/star1.png}" alt=""/>
+                                      <img th:src="@{/images/star1.png}" alt=""/>
+                                      <img th:src="@{/images/star1.png}" alt=""/>
+                                      <img th:src="@{/images/star2.png}" alt=""/>
+                                    </div>
+                                    <div class="nums">- 18 Reviews</div>
+                                  </div>
+                                  <div class="right_side"><a href="#" class="btn-default btn1">查看详情</a></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="popular_pagination"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div id="why1">
+  <div class="container">
+
+    <h2 class="animated">WHY WE ARE THE BEST</h2>
+
+    <div class="title1 animated">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod <br/>tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
+
+    <br/><br/>
+
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="thumb2 animated" data-animation="flipInY" data-animation-delay="200">
+          <div class="thumbnail clearfix">
+            <a href="#">
+              <figure class="">
+                <img th:src="@{/images/why1.png}" alt="" class="img1 img-responsive"/>
+                <img th:src="@{/images/why1_hover.png}" alt="" class="img2 img-responsive"/>
+              </figure>
+              <div class="caption">
+                <div class="txt1">Amazing Travel</div>
+                <div class="txt2">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim.</div>
+                <div class="txt3">Read More</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="thumb2 animated" data-animation="flipInY" data-animation-delay="300">
+          <div class="thumbnail clearfix">
+            <a href="#">
+              <figure class="">
+                <img th:src="@{/images/why2.png}" alt="" class="img1 img-responsive"/>
+                <img th:src="@{/images/why2_hover.png}" alt="" class="img2 img-responsive"/>
+              </figure>
+              <div class="caption">
+                <div class="txt1">Discover</div>
+                <div class="txt2">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim.</div>
+                <div class="txt3">Read More</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="thumb2 animated" data-animation="flipInY" data-animation-delay="400">
+          <div class="thumbnail clearfix">
+            <a href="#">
+              <figure class="">
+                <img th:src="@{/images/why3.png}" alt="" class="img1 img-responsive"/>
+                <img th:src="@{/images/why3_hover.png}" alt="" class="img2 img-responsive"/>
+              </figure>
+              <div class="caption">
+                <div class="txt1">Book Your Trip</div>
+                <div class="txt2">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim.</div>
+                <div class="txt3">Read More</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="thumb2 animated" data-animation="flipInY" data-animation-delay="500">
+          <div class="thumbnail clearfix">
+            <a href="#">
+              <figure class="">
+                <img th:src="@{/images/why4.png}" alt="" class="img1 img-responsive"/>
+                <img th:src="@{/images/why4_hover.png}" alt="" class="img2 img-responsive"/>
+              </figure>
+              <div class="caption">
+                <div class="txt1">Nice Support</div>
+                <div class="txt2">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim.</div>
+                <div class="txt3">Read More</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="parallax1" class="parallax">
+  <div class="bg1 parallax-bg"></div>
+  <div class="overlay"></div>
+  <div class="parallax-content">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-sm-10 animated">
+          <div class="txt1">Caucasus Vacation Packages</div>
+          <div class="txt2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper.</div>
+          <div class="txt3">From: Khazbegi (Goergia) <strong>$159.00</strong><span>person</span></div>
+        </div>
+        <div class="col-sm-2 animated">
+          <a href="#" class="btn-default btn0">Details</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div id="happy1">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-md-push-6">
+        <div class="content">
+          <div class="txt1 animated" data-animation="fadeIn" data-animation-delay="100">HAPPY CUSTOMERS</div>
+          <div class="txt2 animated" data-animation="fadeIn" data-animation-delay="150">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, set amet. </div>
+          <div class="txt3 animated" data-animation="fadeIn" data-animation-delay="200">
+            <p>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh oui-
+sod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit dolore magna aliquam erat voutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit..
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euisod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit.
+            </p>
+          </div>
+
+          <div class="distance1 animated" data-animation="fadeInUp" data-animation-delay="0">
+            <div class="txt">Flights</div>
+            <div class="bg">
+              <div class="animated-distance" data-num="94" data-duration="1300" data-animation-delay="0"><span></span></div>
+            </div>
+          </div>
+
+          <div class="distance1 animated" data-animation="fadeInUp" data-animation-delay="100">
+            <div class="txt">Hotels</div>
+            <div class="bg">
+              <div class="animated-distance" data-num="87" data-duration="1300" data-animation-delay="100"><span></span></div>
+            </div>
+          </div>
+
+          <div class="distance1 animated" data-animation="fadeInUp" data-animation-delay="200">
+            <div class="txt">Cars</div>
+            <div class="bg">
+              <div class="animated-distance" data-num="48" data-duration="1300" data-animation-delay="200"><span></span></div>
+            </div>
+          </div>
+
+          <div class="distance1 animated" data-animation="fadeInUp" data-animation-delay="300">
+            <div class="txt">Cruises</div>
+            <div class="bg">
+              <div class="animated-distance" data-num="51" data-duration="1300" data-animation-delay="300"><span></span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-md-pull-6 animated" data-animation="fadeInLeft" data-animation-delay="200">
+        <img th:src="@{/images/people.png}" alt="" class="img1 img-responsive"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="partners">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 col-md-2 col-xs-6">
+        <div class="thumb1 animated">
+          <div class="thumbnail clearfix">
+            <a href="#">
+              <figure>
+                <img th:src="@{/images/partner1.jpg}" alt="" class="img1 img-responsive"/>
+                <img th:src="@{/images/partner1_hover.jpg}" alt="" class="img2 img-responsive"/>
+              </figure>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-2 col-xs-6">
+        <div class="thumb1 animated">
+          <div class="thumbnail clearfix">
+            <a href="#">
+              <figure>
+                <img th:src="@{/images/partner2.jpg}" alt="" class="img1 img-responsive"/>
+                <img th:src="@{/images/partner2_hover.jpg}" alt="" class="img2 img-responsive"/>
+              </figure>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-2 col-xs-6">
+        <div class="thumb1 animated">
+          <div class="thumbnail clearfix">
+            <a href="#">
+              <figure>
+                <img th:src="@{/images/partner3.jpg}" alt="" class="img1 img-responsive"/>
+                <img th:src="@{/images/partner3_hover.jpg}" alt="" class="img2 img-responsive"/>
+              </figure>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-2 col-xs-6">
+        <div class="thumb1 animated">
+          <div class="thumbnail clearfix">
+            <a href="#">
+              <figure>
+                <img th:src="@{/images/partner4.jpg}" alt="" class="img1 img-responsive"/>
+                <img th:src="@{/images/partner4_hover.jpg}" alt="" class="img2 img-responsive"/>
+              </figure>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-2 col-xs-6">
+        <div class="thumb1 animated">
+          <div class="thumbnail clearfix">
+            <a href="#">
+              <figure>
+                <img th:src="@{/images/partner5.jpg}" alt="" class="img1 img-responsive"/>
+                <img th:src="@{/images/partner5_hover.jpg}" alt="" class="img2 img-responsive"/>
+              </figure>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-2 col-xs-6">
+        <div class="thumb1 animated">
+          <div class="thumbnail clearfix">
+            <a href="#">
+              <figure>
+                <img th:src="@{/images/partner6.jpg}" alt="" class="img1 img-responsive"/>
+                <img th:src="@{/images/partner6_hover.jpg}" alt="" class="img2 img-responsive"/>
+              </figure>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="bot1_wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="logo2_wrapper">
+          <a href="index.html" class="logo2">
+            <img th:src="@{/images/logo2.png}" alt="" class="img-responsive"/>
+          </a>
+        </div>
+        <p>
+          Nam liber tempor cum soluta nobis option congue nihil imperdiet doming id quod mazim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.
+        </p>
+        <p>
+          <a href="#" class="btn-default btn2">Read More</a>
+        </p>
+      </div>
+      <div class="col-sm-3">
+        <div class="bot1_title">Travel Specialists</div>
+        <ul class="ul1">
+          <li><a href="#">First Class Flights</a></li>
+          <li><a href="#">Accessible Travel</a></li>
+          <li><a href="#">Amazing Cruises</a></li>
+        </ul>
+
+        <div class="social2_wrapper">
+          <ul class="social2 clearfix">
+            <li class="nav1"><a href="#"></a></li>
+            <li class="nav2"><a href="#"></a></li>
+            <li class="nav3"><a href="#"></a></li>
+            <li class="nav4"><a href="#"></a></li>
+            <li class="nav5"><a href="#"></a></li>
+            <li class="nav6"><a href="#"></a></li>
+          </ul>
+        </div>
+
+      </div>
+      <div class="col-sm-3">
+        <div class="bot1_title">Our Twitter</div>
+        <div class="twits1">
+          <div class="twit1">
+           <a href="#"> @travel</a> Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+           <div class="date">5 minutes ago</div>
+          </div>
+          <div class="twit1">
+           <a href="#">@leo</a> Nam liber tempor cum soluta nobis option congue nihil imperdiet doming id quod mazim.
+           <div class="date">2 days ago</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="bot1_title">Newsletter</div>
+        <div class="newsletter_block">
+          <div class="txt1">Inspiration, ideas, news and your feedback.</div>
+          <div class="newsletter-wrapper clearfix">
+          <form class="newsletter" action="javascript:;">
+            <input type="text" name="s" value='Email Address' onBlur="if(this.value=='') this.value='Email Address'" onFocus="if(this.value =='Email Address' ) this.value=''"/>
+            <a href="#" class="btn-default btn3">SUBMIT</a>
+          </form>
+        </div>
+        </div>
+        <div class="phone2">1-917-338-6831</div>
+        <div class="support1"><a href="#">support@templates-support.com</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bot2_wrapper">
+  <div class="container">
+    <div class="left_side">
+      Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+    </div>
+    <div class="right_side"></div>
+  </div>
+</div>
+
+</div>
+<div id="dialog-confirm" style="display: none;" title="确认删除吗？">
+  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>注意：您确定吗？</p>
+</div>
+<script src="/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>

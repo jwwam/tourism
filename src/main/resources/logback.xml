@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<configuration>
+
+	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+       <filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+            <evaluator> 
+                <expression>return message.contains("com.blog");</expression>
+            </evaluator>
+            <OnMismatch>NEUTRAL</OnMismatch>
+            <OnMatch>DENY</OnMatch>
+        </filter>
+    
+        <encoder charset="UTF-8">
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender> 
+
+	<appender name="appender" class="ch.qos.logback.core.rolling.RollingFileAppender">  
+	    <file>/logs/info.log</file>  
+	    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">  
+	        <fileNamePattern>/logs/info-%d{yyyy-MM-dd}.log</fileNamePattern>  
+	    </rollingPolicy>  
+	    <encoder>  
+	        <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n</pattern>  
+	    </encoder>  
+	</appender>  
+	  
+	<logger name="com.tourism" level="info" additivity="false">
+	    <appender-ref ref="appender" />  
+	    <appender-ref ref="stdout" />  
+	</logger>  
+	  
+</configuration>      
