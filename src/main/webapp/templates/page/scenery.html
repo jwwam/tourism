@@ -29,6 +29,7 @@
   <script src="/js/jquery.caroufredsel.js" th:src="@{/js/jquery.caroufredsel.js}"></script>
   <script src="/js/jquery.touchSwipe.min.js" th:src="@{/js/jquery.touchSwipe.min.js}"></script>
   <script src="/js/jquery.ui.totop.js" th:src="@{/js/jquery.ui.totop.js}"></script>
+  <script src="/js/cform.js" th:src="@{/js/cform.js}"></script>
   <script src="/js/script.js" th:src="@{/js/script.js}"></script>
 
   <script src="http://ditu.google.cn/maps/api/js?sensor=false.js"></script>
@@ -58,7 +59,7 @@
           <li><a href="#"><i class="fa fa-vimeo-square"></i></a></li>
         </ul>
       </div>
-      <div class="lang1">
+      <!--<div class="lang1">
         <div class="dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">English<span class="caret"></span>
           </button>
@@ -67,7 +68,7 @@
             <li><a class="ru" href="#">Russian</a></li>
           </ul>
         </div>
-      </div>
+      </div>-->
     </div>
   </div>
 </div>
@@ -91,11 +92,11 @@
         </button>
         <div class="navbar-collapse navbar-collapse_ collapse">
           <ul class="nav navbar-nav sf-menu clearfix">
-            <li><a href="../base/index">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="../gallery/view">Gallery</a></li>
-            <li><a href="../scenery/view">Hotels</a></li>
-            <li><a href="contacts.html">Contacts</a></li>
+            <li><a href="../base/index">首页</a></li>
+            <li><a href="../gallery/view">旅行相册</a></li>
+            <li><a href="../scenery/view">酒店住宿</a></li>
+            <li><a href="contacts.html">反馈</a></li>
+            <li><a href="about.html">关于我们</a></li>
           </ul>
         </div>
       </div>
@@ -118,14 +119,9 @@
     <div class="tabs_wrapper tabs1_wrapper">
       <div class="tabs tabs2">
         <div class="tabs_tabs tabs1_tabs">
-
             <ul>
-              <li class="active flights"><a href="#tabs-1">Flights</a></li>
-              <li class="hotels"><a href="#tabs-2">Hotels</a></li>
-              <li class="cars"><a href="#tabs-3">Cars</a></li>
-              <li class="cruises"><a href="#tabs-4">Cruises</a></li>
+              <li class="active hotels"><a href="#tabs-2">酒店信息</a></li>
             </ul>
-
         </div>
         <div class="tabs_content tabs1_content">
 
@@ -133,123 +129,85 @@
               <form action="javascript:;" class="form1">
                 <div class="row">
                   <div class="col-sm-4 col-md-2">
-                    <div class="select1_wrapper">
-                      <label>Flying from:</label>
-                      <div class="select1_inner">
-                        <select class="select2 select" style="width: 100%">
-                          <option value="1">City or Airport</option>
-                          <option value="2">Alaska</option>
-                          <option value="3">Bahamas</option>
-                          <option value="4">Bermuda</option>
-                          <option value="5">Canada</option>
-                          <option value="6">Caribbean</option>
-                          <option value="7">Europe</option>
-                          <option value="8">Hawaii</option>
-                        </select>
-                      </div>
+                    <div class="form-group">
+                      <label for="inputName">地址：</label>
+                      <input type="text" class="form-control" id="inputName" name="name" value="Full Name" onBlur="if(this.value=='') this.value='Full Name'" onFocus="if(this.value =='Full Name' ) this.value=''"/>
                     </div>
                   </div>
                   <div class="col-sm-4 col-md-2">
                     <div class="select1_wrapper">
-                      <label>To:</label>
+                      <label>入住人数：</label>
                       <div class="select1_inner">
-                        <select class="select2 select" style="width: 100%">
-                          <option value="1">City or Airport</option>
-                          <option value="2">Alaska</option>
-                          <option value="3">Bahamas</option>
-                          <option value="4">Bermuda</option>
-                          <option value="5">Canada</option>
-                          <option value="6">Caribbean</option>
-                          <option value="7">Europe</option>
-                          <option value="8">Hawaii</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 col-md-2">
-                    <div class="input1_wrapper">
-                      <label>Departing:</label>
-                      <div class="input1_inner">
-                        <input type="text" class="input datepicker" value="Mm/Dd/Yy"/>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 col-md-2">
-                    <div class="input1_wrapper">
-                      <label>Returning:</label>
-                      <div class="input1_inner">
-                        <input type="text" class="input datepicker" value="Mm/Dd/Yy"/>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 col-md-1">
-                    <div class="select1_wrapper">
-                      <label>Adult:</label>
-                      <div class="select1_inner">
-                        <select class="select2 select select3" style="width: 100%">
+                        <select class="select2 select">
                           <option value="1">1</option>
                           <option value="2">2</option>
                           <option value="3">3</option>
                           <option value="4">4</option>
                           <option value="5">5</option>
-                          <option value="6">6</option>
-                          <option value="7">7</option>
-                          <option value="8">8</option>
                         </select>
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-4 col-md-1">
+                  <div class="col-sm-4 col-md-2">
                     <div class="select1_wrapper">
-                      <label>Child:</label>
+                      <label>入住天数：</label>
                       <div class="select1_inner">
-                        <select class="select2 select select3" style="width: 100%">
+                        <select class="select2 select">
                           <option value="1">1</option>
                           <option value="2">2</option>
                           <option value="3">3</option>
                           <option value="4">4</option>
                           <option value="5">5</option>
-                          <option value="6">6</option>
-                          <option value="7">7</option>
-                          <option value="8">8</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 col-md-2">
+                    <div class="form-group">
+                      <label for="inputName">最低价格：</label>
+                      <input type="text" class="form-control" id="sPrice" name="name" value="Full Name" onBlur="if(this.value=='') this.value='Full Name'" onFocus="if(this.value =='Full Name' ) this.value=''"/>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 col-md-1">
+                    <div class="form-group">
+                      <label for="inputName">最高价格：</label>
+                      <input type="text" class="form-control" id="ePrice" name="name" value="Full Name" onBlur="if(this.value=='') this.value='Full Name'" onFocus="if(this.value =='Full Name' ) this.value=''"/>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 col-md-1">
+                    <div class="select1_wrapper">
+                      <label>酒店星级：</label>
+                      <div class="select1_inner">
+                        <select class="select2 select" style="width: 100%">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="3">4</option>
+                          <option value="3">5</option>
                         </select>
                       </div>
                     </div>
                   </div>
                   <div class="col-sm-4 col-md-2">
                     <div class="button1_wrapper">
-                      <button type="submit" class="btn-default btn-form1-submit">Search</button>
+                      <button type="submit" class="btn-default btn-form1-submit">查询</button>
                     </div>
                   </div>
                 </div>
               </form>
               <div class="row">
                 <div class="col-sm-3">
-
                   <form action="javascript:;" class="form2 form2_flights">
                     <div class="select1_wrapper clearfix">
-                      <label>Passenger:</label>
-                      <div class="select1_inner">
-                        <select class="select2 select select3" style="width: 100%">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                          <option value="6">6</option>
-                          <option value="7">7</option>
-                          <option value="8">8</option>
-                        </select>
-                      </div>
+                      <label style="font-size: 28px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;精品推荐</label>
                     </div>
                   </form>
-
                   <ul class="ul3">
-                    <li><a href="#">Star Raiting</a></li>
-                    <li><a href="#">Price Range</a></li>
-                    <li><a href="#">Departure Ports</a></li>
-                    <li><a href="#">Trip Duration</a></li>
-                    <li><a href="#">Ships</a></li>
+                    <li><a href="#" >五星好评</a></li>
+                    <li><a href="#" >低价首选</a></li>
+                    <li><a href="#" >度假休闲</a></li>
+                    <li><a href="#" >购物周边</a></li>
+                    <li><a href="#" >汽车旅馆</a></li>
                   </ul>
 
                   <div class="sm_slider sm_slider1">
@@ -278,243 +236,44 @@
                       </div>
                     </div>
                   </div>
-
-
                 </div>
                 <div class="col-sm-9">
-
-                  <form action="javascript:;" class="form3 clearfix">
-                    <div class="select1_wrapper txt">
-                      <label>Sort by:</label>
-                    </div>
-                    <div class="select1_wrapper sel">
-                      <div class="select1_inner">
-                        <select class="select2 select" style="width: 100%">
-                          <option value="1">Name</option>
-                          <option value="2">Name2</option>
-                          <option value="2">Name3</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="select1_wrapper sel">
-                      <div class="select1_inner">
-                        <select class="select2 select" style="width: 100%">
-                          <option value="1">Price</option>
-                          <option value="2">Price2</option>
-                          <option value="2">Price3</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="select1_wrapper sel">
-                      <div class="select1_inner">
-                        <select class="select2 select" style="width: 100%">
-                          <option value="1">Raiting</option>
-                          <option value="2">Raiting2</option>
-                          <option value="2">Raiting3</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="select1_wrapper sel">
-                      <div class="select1_inner">
-                        <select class="select2 select" style="width: 100%">
-                          <option value="1">Popularity</option>
-                          <option value="2">Popularity2</option>
-                          <option value="2">Popularity3</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="select1_wrapper buttons">
-                      <a href="#" class="btn-default s1"></a>
-                      <a href="#" class="btn-default s2"></a>
-                      <a href="#" class="btn-default s3"></a>
-                    </div>
-                  </form>
-
                   <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-4" th:each="item : ${page.content}">
                       <div class="thumb4">
                         <div class="thumbnail clearfix">
                           <figure>
-                            <img src="images/flights01.jpg" alt="" class="img-responsive"/>
+                            <img th:src="@{/images/hotels02.jpg}" alt="" class="img-responsive"/>
                           </figure>
                           <div class="caption">
-                            <div class="txt1">Abudabi - Zurich</div>
+                            <div class="txt1" th:text="${item.title}"></div>
                             <div class="txt3 clearfix">
                               <div class="left_side">
-                                <div class="price">$250.00</div>
-                                <div class="nums">avg/person</div>
+                                <div class="price" th:text="${item.price}"></div>
+                                <div class="nums" th:text="${item.bed}"></div>
                               </div>
-                              <div class="right_side"><a href="#" class="btn-default btn1">Details</a></div>
+                              <div class="right_side">
+                                <a href="#" th:href="@{/scenery/detail(id=${item.id})}" class="btn-default btn1">查看详情</a>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="col-sm-4">
-                      <div class="thumb4">
-                        <div class="thumbnail clearfix">
-                          <figure>
-                            <img src="images/flights02.jpg" alt="" class="img-responsive"/>
-                          </figure>
-                          <div class="caption">
-                            <div class="txt1">Sydney - Berlin</div>
-                            <div class="txt3 clearfix">
-                              <div class="left_side">
-                                <div class="price">$849.00</div>
-                                <div class="nums">avg/person</div>
-                              </div>
-                              <div class="right_side"><a href="#" class="btn-default btn1">Details</a></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="thumb4">
-                        <div class="thumbnail clearfix">
-                          <figure>
-                            <img src="images/flights03.jpg" alt="" class="img-responsive"/>
-                          </figure>
-                          <div class="caption">
-                            <div class="txt1">Ankara - Munich</div>
-                            <div class="txt3 clearfix">
-                              <div class="left_side">
-                                <div class="price">$849.00</div>
-                                <div class="nums">avg/person</div>
-                              </div>
-                              <div class="right_side"><a href="#" class="btn-default btn1">Details</a></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <!--<div>
+                      <a th:href="@{/scenery/view(start=0)}">[首页]</a>
+                      <a th:if="${not page.isFirst()}" th:href="@{/scenery/view(start=${page.number-1})}">[上页]</a>
+                      <a th:if="${not page.isLast()}" th:href="@{/scenery/view(start=${page.number+1})}">[下页]</a>
+                      <a th:href="@{/scenery/view(start=${page.totalPages-1})}">[末页]</a>
+                    </div>-->
                   </div>
-
-                  <div class="hl1"></div>
-
-                  <div class="row">
-                    <div class="col-sm-4">
-                      <div class="thumb4">
-                        <div class="thumbnail clearfix">
-                          <figure>
-                            <img src="images/flights04.jpg" alt="" class="img-responsive"/>
-                          </figure>
-                          <div class="caption">
-                            <div class="txt1">Zurich- Moscow</div>
-                            <div class="txt3 clearfix">
-                              <div class="left_side">
-                                <div class="price">$549.00</div>
-                                <div class="nums">avg/person</div>
-                              </div>
-                              <div class="right_side"><a href="#" class="btn-default btn1">Details</a></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="thumb4">
-                        <div class="thumbnail clearfix">
-                          <figure>
-                            <img src="images/flights05.jpg" alt="" class="img-responsive"/>
-                          </figure>
-                          <div class="caption">
-                            <div class="txt1">Boston- Tbilisi</div>
-                            <div class="txt3 clearfix">
-                              <div class="left_side">
-                                <div class="price">$749.00</div>
-                                <div class="nums">avg/person</div>
-                              </div>
-                              <div class="right_side"><a href="#" class="btn-default btn1">Details</a></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="thumb4">
-                        <div class="thumbnail clearfix">
-                          <figure>
-                            <img src="images/flights06.jpg" alt="" class="img-responsive"/>
-                          </figure>
-                          <div class="caption">
-                            <div class="txt1">Amsterdam- Viena</div>
-                            <div class="txt3 clearfix">
-                              <div class="left_side">
-                                <div class="price">$179.00</div>
-                                <div class="nums">avg/person</div>
-                              </div>
-                              <div class="right_side"><a href="#" class="btn-default btn1">Details</a></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="hl1"></div>
-
-                  <div class="row">
-                    <div class="col-sm-4">
-                      <div class="thumb4">
-                        <div class="thumbnail clearfix">
-                          <figure>
-                            <img src="images/flights07.jpg" alt="" class="img-responsive"/>
-                          </figure>
-                          <div class="caption">
-                            <div class="txt1">Berlin- Warsaw</div>
-                            <div class="txt3 clearfix">
-                              <div class="left_side">
-                                <div class="price">$69.00</div>
-                                <div class="nums">avg/person</div>
-                              </div>
-                              <div class="right_side"><a href="#" class="btn-default btn1">Details</a></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="thumb4">
-                        <div class="thumbnail clearfix">
-                          <figure>
-                            <img src="images/flights08.jpg" alt="" class="img-responsive"/>
-                          </figure>
-                          <div class="caption">
-                            <div class="txt1">New York - Paris</div>
-                            <div class="txt3 clearfix">
-                              <div class="left_side">
-                                <div class="price">$539.00</div>
-                                <div class="nums">avg/person</div>
-                              </div>
-                              <div class="right_side"><a href="#" class="btn-default btn1">Details</a></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="thumb4">
-                        <div class="thumbnail clearfix">
-                          <figure>
-                            <img src="images/flights09.jpg" alt="" class="img-responsive"/>
-                          </figure>
-                          <div class="caption">
-                            <div class="txt1">Riga- Prague</div>
-                            <div class="txt3 clearfix">
-                              <div class="left_side">
-                                <div class="price">$49.00</div>
-                                <div class="nums">avg/person</div>
-                              </div>
-                              <div class="right_side"><a href="#" class="btn-default btn1">Details</a></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
                   <div class="pager_wrapper">
+                    <ul class="pager clearfix">
+                      <li class="prev"><a th:if="${not page.isFirst()}" th:href="@{/scenery/view(start=${page.number-1})}">上一页</a></li>
+                      <li class="next"><a th:if="${not page.isLast()}" th:href="@{/scenery/view(start=${page.number+1})}">下一页</a></li>
+                    </ul>
+                  </div>
+                  <!--<div class="pager_wrapper">
                     <ul class="pager clearfix">
                       <li class="prev"><a href="#">Previous</a></li>
                       <li class="li"><a href="#">1</a></li>
@@ -529,9 +288,7 @@
                       <li class="li"><a href="#">10</a></li>
                       <li class="next"><a href="#">Next</a></li>
                     </ul>
-                  </div>
-
-
+                  </div>-->
                 </div>
               </div>
             </div>
@@ -542,7 +299,6 @@
 
   </div>
 </div>
-
 
 <div class="bot1_wrapper">
   <div class="container">
@@ -614,12 +370,13 @@
 <div class="bot2_wrapper">
   <div class="container">
     <div class="left_side">
-      Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+      Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href=""></a>
     </div>
     <div class="right_side"></div>
   </div>
 </div>
 </div>
 <script src="/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<!--<script type="text/javascript" src="../componets/business/scenery.js" ></script>-->
 </body>
 </html>

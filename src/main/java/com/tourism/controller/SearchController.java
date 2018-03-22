@@ -18,6 +18,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * java原生写法调用api接口main方法有效, 普通方法无效, 所以使用api封装写法
+ */
+
 @Controller
 @RequestMapping(value="/search")
 public class SearchController extends BaseController {
