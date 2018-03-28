@@ -24,7 +24,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping(value="/search")
-public class SearchController extends BaseController {
+public class ResSearch extends BaseController {
 
     @Autowired
     DesktopService desktopService;

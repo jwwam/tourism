@@ -13,7 +13,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping(value="/desktop")
-public class IndexController extends BaseController {
+public class Index extends BaseController {
 
     @Autowired
     DesktopService desktopService;

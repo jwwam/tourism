@@ -1,4 +1,4 @@
-package com.tourism.controller.Article;
+package com.tourism.controller.base;
 
 import com.show.api.ShowApiRequest;
 import net.sf.json.JSONArray;

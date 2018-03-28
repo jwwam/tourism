@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping(value="/gallery")
-public class GalleryController extends BaseController {
+public class ResGallery extends BaseController {
 
 
     @RequestMapping(value="/view")

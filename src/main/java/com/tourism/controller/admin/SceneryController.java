@@ -1,4 +1,4 @@
-package com.tourism.controller;
+package com.tourism.controller.admin;
 
 import com.tourism.controller.base.BaseController;
 import com.tourism.entity.Scenery;
