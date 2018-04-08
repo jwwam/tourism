@@ -37,4 +37,14 @@ public class SceneryController  extends BaseController {
         return mav;
     }
 
+    @RequestMapping(value="/add")
+    public String view(HttpServletRequest request){
+        return "/admin/addScenery";
+    }
+
+    @RequestMapping(value="/getList")
+    public String getList(HttpServletRequest request){
+        return "/admin/sceneryList";
+    }
+
 }

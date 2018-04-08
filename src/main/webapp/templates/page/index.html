@@ -49,23 +49,14 @@
       <div class="phone1" th:text="${desktop.iphone}"></div>
       <div class="social_wrapper">
         <ul class="social clearfix">
-          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-          <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-          <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-          <li><a href="#"><i class="fa fa-vimeo-square"></i></a></li>
+          <li>
+            <a href="#" class="btn-default btn1" id="login" onclick="showModal();">登录</a>
+          </li>
+          <li>
+            <a href="#" class="btn-default btn1" id="regist" onclick="showRegistModal();">注册</a>
+          </li>
         </ul>
       </div>
-      <!--<div class="lang1">
-        <div class="dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">English<span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a class="ge" href="#">German</a></li>
-            <li><a class="ru" href="#">Russian</a></li>
-          </ul>
-        </div>
-      </div>-->
     </div>
   </div>
 </div>
@@ -168,192 +159,6 @@
                 </div>
               </form>
             </div>
-            <!--<div id="tabs-2">
-              <form action="javascript:;" class="form1">
-                <div class="row">
-                  <div class="col-sm-4 col-md-4">
-                    <div class="select1_wrapper">
-                      <label>City or Hotel Name:</label>
-                      <div class="select1_inner">
-                        <select class="select2 select" style="width: 100%">
-                          <option value="1">Enter a destination or hotel name</option>
-                          <option value="2">Lorem ipsum dolor sit amet</option>
-                          <option value="3">Duis autem vel eum</option>
-                          <option value="4">Ut wisi enim ad minim veniam</option>
-                          <option value="5">Nam liber tempor cum</option>
-                          <option value="6">At vero eos et accusam et</option>
-                          <option value="7">Consetetur sadipscing elitr</option>
-                          <option value="8">Sed diam nonumy</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 col-md-2">
-                    <div class="input1_wrapper">
-                      <label>Check-In:</label>
-                      <div class="input1_inner">
-                        <input type="text" class="input datepicker" value="Mm/Dd/Yy"/>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 col-md-2">
-                    <div class="input1_wrapper">
-                      <label>Check-Out:</label>
-                      <div class="input1_inner">
-                        <input type="text" class="input datepicker" value="Mm/Dd/Yy"/>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 col-md-2">
-                    <div class="select1_wrapper">
-                      <label>Adult:</label>
-                      <div class="select1_inner">
-                        <select class="select2 select" style="width: 100%">
-                          <option value="1">Room  for  1  adult</option>
-                          <option value="2">Room  for  2  adult</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 col-md-2">
-                    <div class="button1_wrapper">
-                      <button type="submit" class="btn-default btn-form1-submit">Search</button>
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
-            <div id="tabs-3">
-              <form action="javascript:;" class="form1">
-                <div class="row">
-                  <div class="col-sm-4 col-md-2">
-                    <div class="select1_wrapper">
-                      <label>Country:</label>
-                      <div class="select1_inner">
-                        <select class="select2 select" style="width: 100%">
-                          <option value="1">Please Select</option>
-                          <option value="2">Alaska</option>
-                          <option value="3">Bahamas</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 col-md-2">
-                    <div class="select1_wrapper">
-                      <label>City:</label>
-                      <div class="select1_inner">
-                        <select class="select2 select" style="width: 100%">
-                          <option value="1">Please Select</option>
-                          <option value="2">Alaska</option>
-                          <option value="3">Bahamas</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 col-md-2">
-                    <div class="select1_wrapper">
-                      <label>Location:</label>
-                      <div class="select1_inner">
-                        <select class="select2 select" style="width: 100%">
-                          <option value="1">Please Select</option>
-                          <option value="2">Alaska</option>
-                          <option value="3">Bahamas</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 col-md-2">
-                    <div class="input1_wrapper">
-                      <label>Pick up Date:</label>
-                      <div class="input1_inner">
-                        <input type="text" class="input datepicker" value="Mm/Dd/Yy"/>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 col-md-2">
-                    <div class="input1_wrapper">
-                      <label>Drop off Date:</label>
-                      <div class="input1_inner">
-                        <input type="text" class="input datepicker" value="Mm/Dd/Yy"/>
-                      </div>
-                    </div>
-                  </div>
-
-
-                  <div class="col-sm-4 col-md-2">
-                    <div class="button1_wrapper">
-                      <button type="submit" class="btn-default btn-form1-submit">Search</button>
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
-            <div id="tabs-4">
-              <form action="javascript:;" class="form1">
-                <div class="row">
-                  <div class="col-sm-4 col-md-2">
-                    <div class="select1_wrapper">
-                      <label>Sail To:</label>
-                      <div class="select1_inner">
-                        <select class="select2 select" style="width: 100%">
-                          <option value="1">All destinations</option>
-                          <option value="2">Alaska</option>
-                          <option value="3">Bahamas</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 col-md-2">
-                    <div class="select1_wrapper">
-                      <label>Sail From:</label>
-                      <div class="select1_inner">
-                        <select class="select2 select" style="width: 100%">
-                          <option value="1">All ports</option>
-                          <option value="2">Alaska</option>
-                          <option value="3">Bahamas</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-sm-4 col-md-2">
-                    <div class="input1_wrapper">
-                      <label>Start Date:</label>
-                      <div class="input1_inner">
-                        <input type="text" class="input datepicker" value="From any month"/>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 col-md-2">
-                    <div class="input1_wrapper">
-                      <label>End of Date:</label>
-                      <div class="input1_inner">
-                        <input type="text" class="input datepicker" value="To any month"/>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 col-md-2">
-                    <div class="select1_wrapper">
-                      <label>Cruise Ship:</label>
-                      <div class="select1_inner">
-                        <select class="select2 select" style="width: 100%">
-                          <option value="1">All Ships</option>
-                          <option value="2">Alaska</option>
-                          <option value="3">Bahamas</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-
-
-                  <div class="col-sm-4 col-md-2">
-                    <div class="button1_wrapper">
-                      <button type="submit" class="btn-default btn-form1-submit">Search</button>
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>-->
 
         </div>
       </div>
@@ -736,9 +541,102 @@ sod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad min
 </div>
 
 </div>
-<div id="dialog-confirm" style="display: none;" title="确认删除吗？">
-  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>注意：您确定吗？</p>
+
+<!-- 登录 -->
+<div class="modal fade" id="login_modal">
+  <div class="modal-dialog">
+    <div class="modal-content message_align">
+      <form id="dologin" name="uploadForm" method="POST" class="form-horizontal" action="../desktop/login" role="form">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title">用户登录</h4>
+        </div>
+        <div class="modal-body">
+          <div class="thumbnail clearfix">
+              <!--<div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title" id="myModalLabel">添加</h4>
+              </div>-->
+              <div class="modal-body">
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label>用户名</label>
+                        <input class="form-control" placeholder="用户名" name="email" />
+                      </div>
+                      <div class="form-group">
+                        <label>密码</label>
+                        <input class="form-control" type="password" placeholder="密码" name="iphone" />
+                      </div>
+                      <div class="form-group" >
+                        <label>错误信息</label>
+                        <p th:text="${error}"></p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.row (nested) -->
+                </div>
+                <!-- /.panel-body -->
+              </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input type="hidden" id="id"/>
+          <button type="button" class="btn btn-default" onclick="closeModal()">取消</button>
+          <button type="submit" class="btn btn-primary">登录</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
+
+<!-- 注册 -->
+<div class="modal fade" id="regist_modal">
+  <div class="modal-dialog">
+    <div class="modal-content message_align">
+      <form id="doregist" name="uploadForm" method="POST" class="form-horizontal" action="../index/regist" role="form">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title">用户注册</h4>
+        </div>
+        <div class="modal-body">
+          <div class="thumbnail clearfix">
+            <!--<div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">添加</h4>
+            </div>-->
+            <div class="modal-body">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      <label>用户名</label>
+                      <input class="form-control" placeholder="用户名" name="username" />
+                    </div>
+                    <div class="form-group">
+                      <label>密码</label>
+                      <input class="form-control" type="password" placeholder="密码" name="password" />
+                    </div>
+                  </div>
+                </div>
+                <!-- /.row (nested) -->
+              </div>
+              <!-- /.panel-body -->
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" onclick="closeRegistModal()">取消</button>
+          <button type="submit" class="btn btn-primary">注册</button>
+        </div>
+      </form>
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <script src="/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" src="../componets/business/index.js" ></script>
 </body>
 </html>
