@@ -22,8 +22,7 @@ public class UserServiceImpl implements UserService {
     public String[] save(User user) {
         String [] array = new String[2];
         System.out.println("aaaaaaaa:"+user.getId());
-        if( user.getId() == null
-                || user.getId().equals("")){
+        if( user.getId() == null || user.getId().equals("")){
             String uuid = UUID.randomUUID().toString(); //获取UUID并转化为String对象
             uuid = uuid.replace("-", "");
             user.setId(uuid);

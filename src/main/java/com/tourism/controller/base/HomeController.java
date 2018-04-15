@@ -56,10 +56,10 @@ public class HomeController {
         request.setAttribute("topFlowList",topFlowList);
         List<Desktop> desktopList = desktopService.getAll();
         if(desktopList!=null||desktopList.size()!=0){
-            request.setAttribute("desktop",desktopList.get(0));
+            request.getSession().setAttribute("desktop",desktopList.get(0));
         }else{
             Desktop desktop = new Desktop();
-            request.setAttribute("desktop",desktop);
+            request.getSession().setAttribute("desktop",desktop);
         }
         return "/page/index";
     }

@@ -8,7 +8,10 @@ import com.tourism.service.UserService;
 import com.tourism.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -55,11 +58,8 @@ public class Index extends BaseController {
 
     }
 
-    @RequestMapping(value="/login")
-    public void login (HttpServletRequest request,HttpServletResponse response) throws Exception{
-        String username = (String) request.getAttribute("username");
-        String password = (String) request.getAttribute("password");
-
+    @RequestMapping(value="/login", method = RequestMethod.POST)
+    public void login (HttpServletRequest request,HttpServletResponse response, String username, String password) throws Exception{
         if(StringUtils.isNotEmpty(username)&&StringUtils.isNotEmpty(password)){
             if(username.equals("admin")){
                 User user = userService.findByName(username);
@@ -67,36 +67,78 @@ public class Index extends BaseController {
                     String respassword = user.getPassword();
                     if(respassword.equals(password)){
                         request.getSession().setAttribute("state",1);
+                        response.sendRedirect(request.getContextPath() + "/admin/index"); // 返回
                     }else{
                         request.getSession().setAttribute("state",0);
-                        request.setAttribute("error", "密码错误");
+                        request.getSession().setAttribute("error", "密码错误");
+                        response.sendRedirect(request.getContextPath() + "/base/index"); // 返回
                     }
                 }else{
-                    request.setAttribute("error", "用户不存在");
+                    request.getSession().setAttribute("state",0);
+                    request.getSession().setAttribute("error", "用户不存在");
+                    response.sendRedirect(request.getContextPath() + "/base/index"); // 返回
                 }
-                response.sendRedirect(request.getContextPath() + "/admin/index"); // 返回
+
             }else{
                 User user = userService.findByName(username);
                 if(user!=null){
                     String respassword = user.getPassword();
                     if(respassword.equals(password)){
-                        request.setAttribute("username",user.getUsername() );
+                        request.getSession().setAttribute("username",user.getUsername() );
                         request.getSession().setAttribute("state",1);
                     }else{
                         request.getSession().setAttribute("state",0);
-                        request.setAttribute("error", "密码错误");
+                        request.getSession().setAttribute("error", "密码错误");
                     }
                 }else{
-                    request.setAttribute("error", "用户不存在");
+                    request.getSession().setAttribute("state",0);
+                    request.getSession().setAttribute("error", "用户不存在");
                 }
                 response.sendRedirect(request.getContextPath() + "/base/index"); // 返回
             }
         }else{
-            request.setAttribute("error", "用户名或密码为空");
+            request.getSession().setAttribute("error", "用户名或密码为空");
             response.sendRedirect(request.getContextPath() + "/base/index");
         }
     }
 
+    @RequestMapping(value="/logout", method = RequestMethod.GET)
+    public void logout (HttpServletRequest request,HttpServletResponse response) throws Exception{
+
+        request.getSession().setAttribute("state",null);
+        response.sendRedirect(request.getContextPath() + "/base/index"); // 返回
+    }
+
+    //注册
+    @RequestMapping(value="/regist", method = RequestMethod.POST)
+    @ResponseBody
+    public ModelMap regist(HttpServletRequest request, String username, String password) {
+        ModelMap map = new ModelMap();
+        if(StringUtils.isNotEmpty(username)&&StringUtils.isNotEmpty(password)){
+            User user = userService.findByName(username);
+            if(user!=null){
+                map.put("state", 0);
+                map.put("msg", "用户已被注册");
+            }else{
+                User u = new User();
+                u.setUsername(username);
+                u.setPassword(password);
+                String [] userResult = userService.save(u);
+                if( userResult[0].equals("false") ){
+                    //"操作失败";
+                    logger.info("保存失败："+userResult.toString());
+                }else{
+                    //"操作成功";
+                    logger.info("保存成功："+userResult.toString());
+                }
+                map.put("state", 1);
+            }
+        }else{
+            map.put("state", 0);
+            map.put("msg", "用户名或密码为空");
+        }
+        return map;
+    }
 
     @RequestMapping(value="/regist")
     public void regist (HttpServletRequest request,HttpServletResponse response) throws Exception{

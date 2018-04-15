@@ -28,6 +28,41 @@ function closeRegistModal() {
     $("#regist_modal").modal('hide');
 }
 
+
+function regist(){
+    var username = $("#regist_username").val();
+    var password = $("#regist_password").val();
+    console.log(username);
+    console.log(password);
+    if(username=="admin"){
+        alert("该用户名不支持注册");
+        return false;
+    }
+    $.ajax({
+        type: 'post',
+        url: "../desktop/regist",
+        dataType: "json",
+        async: false,
+        data : {
+            username : username,
+            password : password,
+        },
+        success: function (result) {
+            if(result.state==1){
+                alert("注册成功");
+                setTimeout(function(){
+                    location.reload();
+                }, 3000);
+            }else{
+                alert(result.msg);
+            }
+        },
+        error: function () {
+            console.log("error!");
+        }
+    });
+}
+
 function addLabel(id){
     if(id!="tianjia"){
         $.ajax({
