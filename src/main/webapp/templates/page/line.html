@@ -34,7 +34,7 @@
 
 <div class="breadcrumbs1_wrapper">
   <div class="container">
-    <div class="breadcrumbs1"><a href="index.html">Home</a><span>/</span>Gallery</div>
+    <div class="breadcrumbs1"><a href="index.html">Home</a><span>/</span>旅游线路</div>
   </div>
 </div>
 
@@ -56,22 +56,22 @@
             <div class="grid-sizer col-sm-4"></div>
             <div class="gutter-sizer"></div>
 
-            <li class="element isotope-filter3 col-sm-4 col-xs-12">
+            <li class="element isotope-filter1 col-sm-4 col-xs-12" th:each="item : ${page.content}">
               <div class="thumb-isotope">
                 <div class="thumbnail clearfix">
                   <a href="images/gallery01.jpg" rel="prettyPhoto[mix]" title="Photo">
                     <figure>
-                      <img th:src="@{/images/gallery01.jpg}" alt=""/><em></em>
+                      <img th:src="${'http://localhost:8080/images/'+item.img}"  alt=""/><em></em>
                     </figure>
                     <div class="caption">
-                      <div class="txt1">cannes, france</div>
-                      <div class="txt2">hotel carlton</div>
+                      <div class="txt1" th:text="${item.title}">cannes, france</div>
+                      <div class="txt2" th:text="${item.detail}">hotel carlton</div>
                     </div>
                   </a>
                 </div>
               </div>
             </li>
-            <li class="element isotope-filter1 isotope-filter2 col-sm-8 col-xs-12">
+            <!--<li class="element isotope-filter1 isotope-filter2 col-sm-8 col-xs-12">
               <div class="thumb-isotope">
                 <div class="thumbnail clearfix">
                   <a href="images/gallery02.jpg" rel="prettyPhoto[mix]" title="Photo">
@@ -220,7 +220,7 @@
                   </a>
                 </div>
               </div>
-            </li>
+            </li>-->
           </ul>
         </div>
       </div>

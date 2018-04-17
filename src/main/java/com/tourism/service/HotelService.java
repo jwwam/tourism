@@ -4,6 +4,9 @@ import com.tourism.entity.Hotel;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 public interface HotelService {
 
     Hotel findById(String id);
@@ -13,5 +16,7 @@ public interface HotelService {
     String[] save(Hotel s);
 
     void delete(Hotel s);
+
+    int upload (HttpServletRequest request, HttpServletResponse response);
 
 }

@@ -184,14 +184,14 @@
                       <div class="thumb4">
                         <div class="thumbnail clearfix">
                           <figure>
-                            <img th:src="${'http://localhost:8080/images/'+item.img}" alt="" class="img-responsive"/>
+                            <img th:src="@{/images/hotels02.jpg}" alt="" class="img-responsive"/>
                           </figure>
                           <div class="caption">
                             <div class="txt1" th:text="${item.title}"></div>
                             <div class="txt3 clearfix">
                               <div class="left_side">
                                 <div class="price" th:text="${item.price}"></div>
-                                <div class="nums" th:text="${item.day}"></div>
+                                <div class="nums" th:text="${item.bed}"></div>
                               </div>
                               <div class="right_side">
                                 <a href="#" th:href="@{/scenery/detail(id=${item.id})}" class="btn-default btn1">查看详情</a>
@@ -210,8 +210,8 @@
                   </div>
                   <div class="pager_wrapper">
                     <ul class="pager clearfix">
-                      <li class="prev"><a th:if="${not page.isFirst()}" th:href="@{/resScenery/view(start=${page.number-1})}">上一页</a></li>
-                      <li class="next"><a th:if="${not page.isLast()}" th:href="@{/resScenery/view(start=${page.number+1})}">下一页</a></li>
+                      <li class="prev"><a th:if="${not page.isFirst()}" th:href="@{/resHotel/view(start=${page.number-1})}">上一页</a></li>
+                      <li class="next"><a th:if="${not page.isLast()}" th:href="@{/resHotel/view(start=${page.number+1})}">下一页</a></li>
                     </ul>
                   </div>
                   <!--<div class="pager_wrapper">

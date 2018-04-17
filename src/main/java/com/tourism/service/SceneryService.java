@@ -4,6 +4,9 @@ import com.tourism.entity.Scenery;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 public interface SceneryService {
 
     Scenery findById(String id);
@@ -13,5 +16,7 @@ public interface SceneryService {
     String[] save(Scenery s);
 
     void delete(Scenery s);
+
+    int upload (HttpServletRequest request, HttpServletResponse response);
 
 }

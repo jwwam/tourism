@@ -15,6 +15,9 @@ public interface UserDao extends PagingAndSortingRepository<User, Long>,JpaSpeci
     @Query("from User u where u.username = ?1")
     User findByName(String username);
 
+    @Query("from User u where u.id = ?1")
+    User findById(String id);
+
     @Modifying
     @Query("UPDATE User SET username=?1,password=?2 WHERE id = ?3")
     int updateUser(String username, String password, String id);

@@ -15,15 +15,31 @@ public class Gallery extends BaseEntity  {
     @Column(name= "detail")
     private String detail;
 
-    //价格
-    @Column(name= "price")
-    private String price;
+    //图片
+    @Column(name= "img")
+    private String img;
 
-    //日期
-    @Column(name= "day")
-    private String day;
+    public String getTitle() {
+        return title;
+    }
 
-    //地址
-    @Column(name= "address")
-    private String address;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
 }

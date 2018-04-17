@@ -16,11 +16,11 @@ public class Scenery extends BaseEntity {
     @Column(name= "detail")
     private String detail;
 
-    //价格
+    //门票价格
     @Column(name= "price")
     private String price;
 
-    //日期
+    //开放日期
     @Column(name= "day")
     private String day;
 
@@ -28,9 +28,9 @@ public class Scenery extends BaseEntity {
     @Column(name= "address")
     private String address;
 
-    //床型
-    @Column(name= "bed")
-    private String bed;
+    //星级
+    @Column(name= "star")
+    private String star;
 
     //图片
     @Column(name= "img")
@@ -76,19 +76,19 @@ public class Scenery extends BaseEntity {
         this.address = address;
     }
 
-    public String getBed() {
-        return bed;
-    }
-
-    public void setBed(String bed) {
-        this.bed = bed;
-    }
-
     public String getImg() {
         return img;
     }
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public String getStar() {
+        return star;
+    }
+
+    public void setStar(String star) {
+        this.star = star;
     }
 }

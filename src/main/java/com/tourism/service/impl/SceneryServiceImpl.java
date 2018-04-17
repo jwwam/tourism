@@ -56,6 +56,7 @@ public class SceneryServiceImpl implements SceneryService{
         String fileUrl = "";
         String fileUrls = "";
         String id = "";
+        String path = System.getProperty("catalina.home")+"\\webapps\\images\\";
         try{
             Scenery cf = new Scenery();
             System.out.println("upload");
@@ -76,7 +77,7 @@ public class SceneryServiceImpl implements SceneryService{
             List<FileItem> itemList=upload.parseRequest(request);
             System.out.println(itemList.size());
             //String uploadPathTemp = uploadPath +"\\"+ DateUtils.yyyyMMdd(new Date());
-            String uploadPathTemp = uploadFilsPath;
+            String uploadPathTemp = path;
             File file1 =  new File(uploadPathTemp);
             if( !file1 .isDirectory()){
                 file1.mkdirs();
@@ -101,8 +102,8 @@ public class SceneryServiceImpl implements SceneryService{
                         cf.setDay(value);
                     }else if("address".equals(name)){
                         cf.setAddress(value);
-                    }else if("bed".equals(name)){
-                        cf.setBed(value);
+                    }else if("star".equals(name)){
+                        cf.setStar(value);
                     }else{
                         System.out.println("多余提交选项!");
                     }

@@ -5,4 +5,6 @@ SpringMVC SpringDataJPA MySQL
 
 http://localhost:8080/tourism/base/index
 
+在Tomcat下创建images目录用来存放上传的图片 idea配置Tomcat的images路径
+
 #联系QQ:824247231

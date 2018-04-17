@@ -140,28 +140,4 @@ public class Index extends BaseController {
         return map;
     }
 
-    @RequestMapping(value="/regist")
-    public void regist (HttpServletRequest request,HttpServletResponse response) throws Exception{
-
-        String username = (String) request.getAttribute("username");
-        String password = (String) request.getAttribute("password");
-
-        if(StringUtils.isNotEmpty(username)&&StringUtils.isNotEmpty(password)){
-            User user = new User();
-            user.setUsername(username);
-            user.setPassword(password);
-            String [] userResult = userService.save(user);
-            if( userResult[0].equals("false") ){
-                //"操作失败";
-                logger.info("保存失败："+userResult.toString());
-            }else{
-                //"操作成功";
-                logger.info("保存成功："+userResult.toString());
-            }
-        }else{
-            request.setAttribute("error", "用户名或密码为空");
-        }
-        response.sendRedirect(request.getContextPath() + "/base/index");
-    }
-
 }

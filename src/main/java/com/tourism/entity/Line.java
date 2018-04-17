@@ -26,6 +26,10 @@ public class Line extends BaseEntity  {
     @Column(name= "address")
     private String address;
 
+    //图片
+    @Column(name= "img")
+    private String img;
+
     @OneToMany(cascade= CascadeType.ALL)
     @JoinColumn(name="line_id")
     private List<LineInfo> lineInfoList;
@@ -70,4 +74,11 @@ public class Line extends BaseEntity  {
         this.address = address;
     }
 
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
 }

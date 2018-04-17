@@ -4,6 +4,8 @@ import com.tourism.dao.UserDao;
 import com.tourism.entity.User;
 import com.tourism.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -17,6 +19,10 @@ public class UserServiceImpl implements UserService {
 
     public User findByName(String name) {
         return userDao.findByName(name);
+    }
+
+    public User findById(String id) {
+        return userDao.findById(id);
     }
 
     public String[] save(User user) {
@@ -44,6 +50,14 @@ public class UserServiceImpl implements UserService {
         }
 
         return array;
+    }
+
+    public Page<User> findAll(Pageable pageable) {
+        return userDao.findAll(pageable);
+    }
+
+    public void delete(User u){
+        userDao.delete(u);
     }
 
 }
