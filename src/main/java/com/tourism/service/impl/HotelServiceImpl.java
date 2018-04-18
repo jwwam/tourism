@@ -94,7 +94,9 @@ public class HotelServiceImpl implements HotelService {
                     id = value;
                     System.out.println("name="+name+"  value="+value);
 
-                    if("title".equals(name)){
+                    if("id".equals(name)){
+                        h.setId(value);
+                    }else if("title".equals(name)){
                         h.setTitle(value);
                     }else if("detail".equals(name)){
                         h.setDetail(value);
@@ -134,15 +136,25 @@ public class HotelServiceImpl implements HotelService {
             }
             //@Query("update RecordFile set status=0,fileUrl=?1,createDate=?2,operateDate=?3,creuser=?4 where id = ?5")
             //return  contentFlowDao.updateFileURL(cf,new Date(),new Date());
-            String uuid = UUID.randomUUID().toString(); //获取UUID并转化为String对象
-            uuid = uuid.replace("-", "");
-            h.setId(uuid);
-            Hotel hResult = hotelDao.save(h);
-            if(hResult == null ){
-                return -1;
+            if(StringUtils.isNotEmpty(h.getId())){
+                int  result = hotelDao.updateHotel(h.getAddress(), h.getBed(), h.getDay(), h.getDetail(), h.getImg(), h.getPrice(), h.getTitle(), h.getId());
+                if(result < 0) {
+                    return -1;
+                }else{
+                    return 1;
+                }
             }else{
-                return 1;
+                String uuid = UUID.randomUUID().toString(); //获取UUID并转化为String对象
+                uuid = uuid.replace("-", "");
+                h.setId(uuid);
+                Hotel hResult = hotelDao.save(h);
+                if(hResult == null ){
+                    return -1;
+                }else{
+                    return 1;
+                }
             }
+
         } catch (Exception e) {
             e.printStackTrace();
             return -1;

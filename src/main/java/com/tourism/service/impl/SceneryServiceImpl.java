@@ -92,7 +92,9 @@ public class SceneryServiceImpl implements SceneryService{
                     id = value;
                     System.out.println("name="+name+"  value="+value);
 
-                    if("title".equals(name)){
+                    if("id".equals(name)){
+                        cf.setId(value);
+                    }else if("title".equals(name)){
                         cf.setTitle(value);
                     }else if("detail".equals(name)){
                         cf.setDetail(value);
@@ -132,15 +134,25 @@ public class SceneryServiceImpl implements SceneryService{
             }
             //@Query("update RecordFile set status=0,fileUrl=?1,createDate=?2,operateDate=?3,creuser=?4 where id = ?5")
             //return  contentFlowDao.updateFileURL(cf,new Date(),new Date());
-            String uuid = UUID.randomUUID().toString(); //获取UUID并转化为String对象
-            uuid = uuid.replace("-", "");
-            cf.setId(uuid);
-            Scenery cfResult = sceneryDao.save(cf);
-            if(cfResult == null ){
-                return -1;
+            if(StringUtils.isNotEmpty(cf.getId())){
+                int  result = sceneryDao.updateScenery(cf.getAddress(), cf.getStar(), cf.getDay(), cf.getDetail(), cf.getImg(), cf.getPrice(), cf.getTitle(), cf.getId());
+                if(result < 0) {
+                    return -1;
+                }else{
+                    return 1;
+                }
             }else{
-                return 1;
+                String uuid = UUID.randomUUID().toString(); //获取UUID并转化为String对象
+                uuid = uuid.replace("-", "");
+                cf.setId(uuid);
+                Scenery cfResult = sceneryDao.save(cf);
+                if(cfResult == null ){
+                    return -1;
+                }else{
+                    return 1;
+                }
             }
+
         } catch (Exception e) {
             e.printStackTrace();
             return -1;

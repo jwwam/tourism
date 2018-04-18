@@ -70,4 +70,21 @@ public class HotelController extends BaseController {
 
     }
 
+    @RequestMapping(value="/update")
+    public String update(HttpServletRequest request, String id){
+        Hotel hotel = hotelService.findById(id);
+        request.setAttribute("hotel", hotel);
+        return "/admin/addHotel";
+    }
+
+    //删除
+    @RequestMapping(value="/deleteHotel", method = RequestMethod.POST)
+    @ResponseBody
+    public ModelMap deleteHotel(String id) {
+        ModelMap map = new ModelMap();
+        hotelService.delete(hotelService.findById(id));
+        map.put("msg", "删除成功");
+        return map;
+    }
+
 }

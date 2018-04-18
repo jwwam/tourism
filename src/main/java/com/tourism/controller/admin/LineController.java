@@ -69,4 +69,21 @@ public class LineController extends BaseController {
         }
     }
 
+    //删除
+    @RequestMapping(value="/deleteLine", method = RequestMethod.POST)
+    @ResponseBody
+    public ModelMap deleteLine(String id) {
+        ModelMap map = new ModelMap();
+        lineService.delete(lineService.findById(id));
+        map.put("msg", "删除成功");
+        return map;
+    }
+
+    @RequestMapping(value="/update")
+    public String update(HttpServletRequest request, String id){
+        Line line = lineService.findById(id);
+        request.setAttribute("line", line);
+        return "/admin/addLine";
+    }
+
 }

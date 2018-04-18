@@ -84,7 +84,8 @@ $(function(){
         var text = $(this).attr('name');
         if($(this).attr("class")=="detail"){
             //console.log("打开编辑框");
-            addLabel(id);
+            //addLabel(id);
+            window.location.href="../scenery/update?id="+id;
         }else if($(this).attr("class")=="output"){
             outputExcel(id);
         }else{
@@ -179,7 +180,7 @@ function urlSubmit(){
     console.log("id="+id);
     $.ajax({
         type: 'post',
-        url: "../user/deleteUser",
+        url: "../scenery/deleteScenery",
         dataType: "json",
         data : {
             id : id,//uuid

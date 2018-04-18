@@ -66,7 +66,23 @@ public class SceneryController  extends BaseController {
             //return "/gongshang/recordReview";
             return "/admin/sceneryList";
         }
+    }
 
+    //删除
+    @RequestMapping(value="/deleteScenery", method = RequestMethod.POST)
+    @ResponseBody
+    public ModelMap deleteScenery(String id) {
+        ModelMap map = new ModelMap();
+        sceneryService.delete(sceneryService.findById(id));
+        map.put("msg", "删除成功");
+        return map;
+    }
+
+    @RequestMapping(value="/update")
+    public String update(HttpServletRequest request, String id){
+        Scenery scenery = sceneryService.findById(id);
+        request.setAttribute("scenery", scenery);
+        return "/admin/addScenery";
     }
 
 }

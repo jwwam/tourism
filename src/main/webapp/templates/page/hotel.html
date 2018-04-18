@@ -184,7 +184,7 @@
                       <div class="thumb4">
                         <div class="thumbnail clearfix">
                           <figure>
-                            <img th:src="@{/images/hotels02.jpg}" alt="" class="img-responsive"/>
+                            <img alt="" th:id="${item.img}" name="hotelImg" width="200px" height="120px"/>
                           </figure>
                           <div class="caption">
                             <div class="txt1" th:text="${item.title}"></div>
@@ -194,19 +194,66 @@
                                 <div class="nums" th:text="${item.bed}"></div>
                               </div>
                               <div class="right_side">
-                                <a href="#" th:href="@{/scenery/detail(id=${item.id})}" class="btn-default btn1">查看详情</a>
+                                <!--th:href="@{/scenery/detail(id=${item.id})}"-->
+                                <a href="#" th:name="${item.id}" onclick="showModal(this.name);" class="btn-default btn1">查看详情</a>
+
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
+                      <div class="modal fade" th:id="${item.id}">
+                        <div class="modal-dialog">
+                          <div class="modal-content message_align">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                              <h4 class="modal-title">详细信息</h4>
+                            </div>
+                            <div class="modal-body">
+                              <div class="thumbnail clearfix">
+                                <figure>
+                                  <img name="hotelImg" th:id="${item.img}" alt="" />
+                                  <!--<ul class="social clearfix">
+                                    <li th:each="pic,picStat : ${apidata.picList}">
+                                      <img th:src="${pic.picUrlSmall}" alt="" class="img-responsive"/>
+                                    </li>
+                                  </ul>-->
+                                </figure>
+                                <div class="caption">
+                                  名称：<div class="txt1" th:text="${item.title}"></div>
+                                  <div class="txt3 clearfix">
+                                    <div class="left_side">
+                                      价格：<div class="price" th:text="${item.price}"></div>
+                                      星级：<div class="nums" th:text="${item.price}"></div>
+                                    </div>
+                                    <!--<div class="right_side"><a href="#" class="btn-default btn1" onclick="delcfm();">查看详情</a></div>-->
+                                  </div>
+                                </div>
+                                <!--<figure>
+                                  <ul class="social clearfix">
+                                    <li th:each="price,priceStat : ${apidata.priceList}">
+                                      <span th:text="${price.type}"></span>
+                                      <ul class="social clearfix">
+                                        <li th:each="priceData,priceDataStat : ${price.priceDataList}">
+                                          <span th:text="${priceData.TicketName}"></span>
+                                          <span th:text="${priceData.Amount}"></span>
+                                          <span th:text="${priceData.AmountAdvice}"></span>
+                                        </li>
+                                      </ul>
+                                    </li>
+                                  </ul>
+                                </figure>-->
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <input type="hidden" id="id"/>
+                              <button type="button" class="btn btn-default"  th:name="${item.id}" onclick="closeModal(this.name)">取消</button>
+                              <!--<a  onclick="urlSubmit()" class="btn btn-success" data-dismiss="modal">确定</a>-->
+                            </div>
+                          </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                      </div>
                     </div>
-                    <!--<div>
-                      <a th:href="@{/scenery/view(start=0)}">[首页]</a>
-                      <a th:if="${not page.isFirst()}" th:href="@{/scenery/view(start=${page.number-1})}">[上页]</a>
-                      <a th:if="${not page.isLast()}" th:href="@{/scenery/view(start=${page.number+1})}">[下页]</a>
-                      <a th:href="@{/scenery/view(start=${page.totalPages-1})}">[末页]</a>
-                    </div>-->
                   </div>
                   <div class="pager_wrapper">
                     <ul class="pager clearfix">
@@ -241,73 +288,6 @@
   </div>
 </div>
 
-<!--<div class="bot1_wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-3">
-        <div class="logo2_wrapper">
-          <a href="index.html" class="logo2">
-            <img src="images/logo2.png" alt="" class="img-responsive"/>
-          </a>
-        </div>
-        <p>
-          Nam liber tempor cum soluta nobis option congue nihil imperdiet doming id quod mazim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.
-        </p>
-        <p>
-          <a href="#" class="btn-default btn2">Read More</a>
-        </p>
-      </div>
-      <div class="col-sm-3">
-        <div class="bot1_title">Travel Specialists</div>
-        <ul class="ul1">
-          <li><a href="#">First Class Flights</a></li>
-          <li><a href="#">Accessible Travel</a></li>
-          <li><a href="#">Amazing Cruises</a></li>
-        </ul>
-
-        <div class="social2_wrapper">
-          <ul class="social2 clearfix">
-            <li class="nav1"><a href="#"></a></li>
-            <li class="nav2"><a href="#"></a></li>
-            <li class="nav3"><a href="#"></a></li>
-            <li class="nav4"><a href="#"></a></li>
-            <li class="nav5"><a href="#"></a></li>
-            <li class="nav6"><a href="#"></a></li>
-          </ul>
-        </div>
-
-      </div>
-      <div class="col-sm-3">
-        <div class="bot1_title">Our Twitter</div>
-        <div class="twits1">
-          <div class="twit1">
-           <a href="#"> @travel</a> Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-           <div class="date">5 minutes ago</div>
-          </div>
-          <div class="twit1">
-           <a href="#">@leo</a> Nam liber tempor cum soluta nobis option congue nihil imperdiet doming id quod mazim.
-           <div class="date">2 days ago</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="bot1_title">Newsletter</div>
-        <div class="newsletter_block">
-          <div class="txt1">Inspiration, ideas, news and your feedback.</div>
-          <div class="newsletter-wrapper clearfix">
-          <form class="newsletter" action="javascript:;">
-            <input type="text" name="s" value='Email Address' onBlur="if(this.value=='') this.value='Email Address'" onFocus="if(this.value =='Email Address' ) this.value=''"/>
-            <a href="#" class="btn-default btn3">SUBMIT</a>
-          </form>
-        </div>
-        </div>
-        <div class="phone2">1-917-338-6831</div>
-        <div class="support1"><a href="#">support@templates-support.com</a></div>
-      </div>
-    </div>
-  </div>
-</div>-->
-
 <div class="bot2_wrapper">
   <div class="container">
     <div class="left_side">
@@ -318,6 +298,10 @@
 </div>
 </div>
 <script src="/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
-<!--<script type="text/javascript" src="../componets/business/scenery.js" ></script>-->
+<script type="text/javascript" src="../componets/business/hotel.js" ></script>
+<script>
+
+
+</script>
 </body>
 </html>

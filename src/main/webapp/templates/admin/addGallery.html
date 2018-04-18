@@ -49,13 +49,14 @@
                                     <div class="panel-body">
                                         <div class="row">
                                             <div class="col-lg-12">
+                                                <input  name="id" hidden="hidden" th:value="${gallery==null}? '' : ${gallery.id}"/>
                                                 <div class="form-group">
                                                     <label>名称</label>
-                                                    <input class="form-control" placeholder="名称" name="title"/>
+                                                    <input class="form-control" placeholder="名称" name="title" th:value="${gallery==null}? '' : ${gallery.title}"/>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>说明</label>
-                                                    <input class="form-control" placeholder="说明" name="detail"/>
+                                                    <input class="form-control" placeholder="说明" name="detail" th:value="${gallery==null}? '' : ${gallery.detail}"/>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>图片</label>

@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping(value="/resGallery")
 public class ResGallery extends BaseController {
+
     @Autowired
     GalleryService galleryService;
 

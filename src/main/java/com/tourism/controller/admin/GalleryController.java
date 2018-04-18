@@ -63,7 +63,25 @@ public class GalleryController extends BaseController {
             //return "/gongshang/recordReview";
             return "/admin/galleryList";
         }
-
     }
+
+    //删除
+    @RequestMapping(value="/deleteGallery", method = RequestMethod.POST)
+    @ResponseBody
+    public ModelMap deleteGallery(String id) {
+        ModelMap map = new ModelMap();
+        galleryService.delete(galleryService.findById(id));
+        map.put("msg", "删除成功");
+        return map;
+    }
+
+
+    @RequestMapping(value="/update")
+    public String update(HttpServletRequest request, String id){
+        Gallery gallery = galleryService.findById(id);
+        request.setAttribute("gallery", gallery);
+        return "/admin/addGallery";
+    }
+
 
 }

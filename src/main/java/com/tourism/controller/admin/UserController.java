@@ -57,14 +57,26 @@ public class UserController extends BaseController {
         return map;
     }
 
+    //获取用户信息
+    @RequestMapping(value="/getUserInfo", method = RequestMethod.POST)
+    @ResponseBody
+    public ModelMap getUserInfo(String id) {
+        ModelMap map = new ModelMap();
+        User u = userService.findById(id);
+        map.put("user", u);
+        return map;
+    }
 
     //注册
     @RequestMapping(value="/addUser", method = RequestMethod.POST)
-    public String addUser(HttpServletRequest request, String username, String password) {
-        User u = new User();
-        u.setPassword(password);
-        u.setUsername(username);
-        String [] userResult = userService.save(u);
+    public String addUser(HttpServletRequest request, String username, String password, String id) {
+        User us = userService.findById(id);
+        if(us==null) {
+            us = new User();
+        }
+        us.setPassword(password);
+        us.setUsername(username);
+        String [] userResult = userService.save(us);
         if( userResult[0].equals("false") ){
             //"操作失败";
             logger.info("保存失败："+userResult.toString());

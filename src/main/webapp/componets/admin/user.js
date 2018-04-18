@@ -70,7 +70,7 @@ $(function(){
         var text = $(this).attr('name');
         if($(this).attr("class")=="detail"){
             //console.log("打开编辑框");
-            addLabel(id);
+            updateUser(id);
         }else if($(this).attr("class")=="output"){
             outputExcel(id);
         }else{
@@ -86,60 +86,26 @@ $(function(){
 
 });
 
-function addLabel(id){
-    if(id!="tianjia"){
-        $.ajax({
-            type: 'post',
-            url: "../label/getLabelInfo",
-            dataType: "json",
-            async: false,
-            data : {
-                id : id,
-            },
-            success: function (result) {
-                $("#id").val(result.data.id);
-                $("#labelNames").val(result.data.labelName);
-                $("#labelDes").val(result.data.labelDes);
-            },
-            error: function () {
-                console.log("error!");
-            }
-        });
-    }else{
-        $("#id").val("");
-        $("#labelNames").val("");
-        $("#labelDes").val("");
-    }
-
-    $("#addLabel").dialog({
-        title: "保存信息",
-        height: "auto",
-        minWidth:"640",
-        minHeight:"220"
-    });
+function addModal() {
+    $('#userid').val("");//给会话中的隐藏属性URL赋值
+    $('#myModal').modal();
 }
 
-//更新标签
-function updateLabel(){
-    //获取标签id
-    var uId = $("#id").val();
-    var labelName = $("#labelNames").val();
-    var labelDes = $("#labelDes").val();
+//更新窗口
+function updateUser(id){
+    $('#myModal').modal();
     $.ajax({
         type: 'post',
-        url: "../label/updateLabel",
+        url: "../user/getUserInfo",
         dataType: "json",
         async: false,
         data : {
-            id : uId,
-            labelName : labelName,
-            labelDes : labelDes,
+            id : id,
         },
         success: function (result) {
-            newPrompt(result.msg);
-            setTimeout(function(){
-                location.reload();
-            }, 3000);
+            $('#username').val(result.user.username);
+            $('#password').val(result.user.password);
+            $('#userid').val(result.user.id);
         },
         error: function () {
             console.log("error!");

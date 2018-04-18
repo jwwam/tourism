@@ -49,29 +49,30 @@
                                     <div class="panel-body">
                                         <div class="row">
                                             <div class="col-lg-12">
+                                                <input  name="id" hidden="hidden" th:value="${scenery==null}? '' : ${scenery.id}"/>
                                                 <div class="form-group">
                                                     <label>景点名称</label>
-                                                    <input class="form-control" placeholder="景点名称" name="title" />
+                                                    <input class="form-control" placeholder="景点名称" name="title" th:value="${scenery==null}? '' : ${scenery.title}"/>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>景点描述</label>
-                                                    <input class="form-control" placeholder="景点描述" name="detail" />
+                                                    <input class="form-control" placeholder="景点描述" name="detail" th:value="${scenery==null}? '' : ${scenery.detail}"/>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>景点价格</label>
-                                                    <input class="form-control" placeholder="景点价格" name="price" />
+                                                    <input class="form-control" placeholder="景点价格" name="price" th:value="${scenery==null}? '' : ${scenery.price}"/>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>开放日期</label>
-                                                    <input class="form-control" placeholder="开放日期" name="day" />
+                                                    <input class="form-control" placeholder="开放日期" name="day" th:value="${scenery==null}? '' : ${scenery.day}"/>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>景点地址</label>
-                                                    <input class="form-control" placeholder="景点地址" name="address" />
+                                                    <input class="form-control" placeholder="景点地址" name="address" th:value="${scenery==null}? '' : ${scenery.address}"/>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>景点星级</label>
-                                                    <input class="form-control" placeholder="景点星级" name="star" />
+                                                    <input class="form-control" placeholder="景点星级" name="star" th:value="${scenery==null}? '' : ${scenery.star}"/>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>图片</label>

@@ -974,7 +974,7 @@ transition: all 0.3s ease-out; -moz-transition: all 0.3s ease-out; -webkit-trans
 
 
 
-/*================= Contacts =========================*/
+/*================= ResContacts =========================*/
 #note{ }
 .notification_error{ color:#f00; padding-bottom:10px; }
 .notification_ok{ text-align: left; padding-bottom:10px; }
