@@ -197,26 +197,11 @@
                                     <!--<div class="right_side"><a href="#" class="btn-default btn1" onclick="delcfm();">查看详情</a></div>-->
                                   </div>
                                 </div>
-                                <!--<figure>
-                                  <ul class="social clearfix">
-                                    <li th:each="price,priceStat : ${apidata.priceList}">
-                                      <span th:text="${price.type}"></span>
-                                      <ul class="social clearfix">
-                                        <li th:each="priceData,priceDataStat : ${price.priceDataList}">
-                                          <span th:text="${priceData.TicketName}"></span>
-                                          <span th:text="${priceData.Amount}"></span>
-                                          <span th:text="${priceData.AmountAdvice}"></span>
-                                        </li>
-                                      </ul>
-                                    </li>
-                                  </ul>
-                                </figure>-->
                               </div>
                             </div>
                             <div class="modal-footer">
                               <input type="hidden" id="id"/>
                               <button type="button" class="btn btn-default"  th:name="${item.id}" onclick="closeModal(this.name)">取消</button>
-                              <!--<a  onclick="urlSubmit()" class="btn btn-success" data-dismiss="modal">确定</a>-->
                             </div>
                           </div><!-- /.modal-content -->
                         </div><!-- /.modal-dialog -->
@@ -225,26 +210,10 @@
                   </div>
                   <div class="pager_wrapper">
                     <ul class="pager clearfix">
-                      <li class="prev"><a th:if="${not page.isFirst()}" th:href="@{/resHotel/view(start=${page.number-1})}">上一页</a></li>
-                      <li class="next"><a th:if="${not page.isLast()}" th:href="@{/resHotel/view(start=${page.number+1})}">下一页</a></li>
+                      <li class="prev"><a th:if="${not page.isFirst()}" th:href="@{/resHotel/search(start=${page.number-1})}">上一页</a></li>
+                      <li class="next"><a th:if="${not page.isLast()}" th:href="@{/resHotel/search(start=${page.number+1})}">下一页</a></li>
                     </ul>
                   </div>
-                  <!--<div class="pager_wrapper">
-                    <ul class="pager clearfix">
-                      <li class="prev"><a href="#">Previous</a></li>
-                      <li class="li"><a href="#">1</a></li>
-                      <li class="active"><a href="#">2</a></li>
-                      <li class="li"><a href="#">3</a></li>
-                      <li class="li"><a href="#">4</a></li>
-                      <li class="li"><a href="#">5</a></li>
-                      <li class="li"><a href="#">6</a></li>
-                      <li class="li"><a href="#">7</a></li>
-                      <li class="li"><a href="#">8</a></li>
-                      <li class="li"><a href="#">9</a></li>
-                      <li class="li"><a href="#">10</a></li>
-                      <li class="next"><a href="#">Next</a></li>
-                    </ul>
-                  </div>-->
                 </div>
               </div>
             </div>

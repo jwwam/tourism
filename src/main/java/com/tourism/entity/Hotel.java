@@ -31,6 +31,10 @@ public class Hotel extends BaseEntity  {
     @Column(name= "bed")
     private String bed;
 
+    //床型
+    @Column(name= "star")
+    private String star;
+
     //图片
     @Column(name= "img")
     private String img;
@@ -91,4 +95,11 @@ public class Hotel extends BaseEntity  {
         this.img = img;
     }
 
+    public String getStar() {
+        return star;
+    }
+
+    public void setStar(String star) {
+        this.star = star;
+    }
 }

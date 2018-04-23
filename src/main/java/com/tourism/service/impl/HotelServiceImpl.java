@@ -11,8 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.data.jpa.domain.Specifications;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
@@ -43,6 +49,37 @@ public class HotelServiceImpl implements HotelService {
     public Page<Hotel> findAll(Pageable pageable) {
         return hotelDao.findAll(pageable);
     }
+
+    public Page<Hotel> findAll(String day, String sPrice, String ePrice, String star, Pageable pageable) {
+        return hotelDao.findAll(Specifications.where(getWhereClause(day, sPrice, ePrice, star)),pageable);
+    }
+
+    public Specification<Hotel> getWhereClause(final String day, final String sPrice, final String ePrice, final String star) {
+        return new Specification<Hotel>() {
+            @Override
+            public Predicate toPredicate(Root<Hotel> r, CriteriaQuery<?> q, CriteriaBuilder cb) {
+                Predicate predicate = cb.conjunction();
+                if(StringUtils.isNotEmpty(day)){
+                    predicate.getExpressions().add(
+                        cb.like(r.<String>get("day"), "%" + StringUtils.trim(day) + "%")
+                    );
+                }
+                if(StringUtils.isNotEmpty(sPrice)&&StringUtils.isNotEmpty(ePrice)){
+                    predicate.getExpressions().add(
+                        cb.between(r.<String>get("price"), sPrice, ePrice)
+                    );
+                }
+                if(StringUtils.isNotEmpty(star)){
+                    predicate.getExpressions().add(
+                        cb.like(r.<String>get("star"),"%" + StringUtils.trim(star) + "%")
+                    );
+                }
+                return predicate;
+            }
+        };
+
+    }
+
 
     public String[] save(Hotel h) {
         return new String[0];
@@ -108,6 +145,8 @@ public class HotelServiceImpl implements HotelService {
                         h.setAddress(value);
                     }else if("bed".equals(name)){
                         h.setBed(value);
+                    }else if("star".equals(name)){
+                        h.setStar(value);
                     }else{
                         System.out.println("多余提交选项!");
                     }
@@ -137,7 +176,7 @@ public class HotelServiceImpl implements HotelService {
             //@Query("update RecordFile set status=0,fileUrl=?1,createDate=?2,operateDate=?3,creuser=?4 where id = ?5")
             //return  contentFlowDao.updateFileURL(cf,new Date(),new Date());
             if(StringUtils.isNotEmpty(h.getId())){
-                int  result = hotelDao.updateHotel(h.getAddress(), h.getBed(), h.getDay(), h.getDetail(), h.getImg(), h.getPrice(), h.getTitle(), h.getId());
+                int  result = hotelDao.updateHotel(h.getAddress(), h.getBed(), h.getDay(), h.getDetail(), h.getImg(), h.getPrice(), h.getTitle(), h.getStar(), h.getId());
                 if(result < 0) {
                     return -1;
                 }else{

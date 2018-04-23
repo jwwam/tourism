@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @Controller
 @RequestMapping(value="/resHotel")
 public class ResHotel extends BaseController {
@@ -37,5 +39,20 @@ public class ResHotel extends BaseController {
         mav.addObject("page", page);
         return mav;
     }
+
+    @RequestMapping(value="/search")
+    public ModelAndView search(@RequestParam(value = "start", defaultValue = "0") Integer start,
+                               @RequestParam(value = "limit", defaultValue = "9") Integer limit,
+                               @RequestParam String day, @RequestParam String sPrice,
+                               @RequestParam String ePrice, @RequestParam String star){
+        start = start < 0 ? 0 : start;
+        Sort sort = new Sort(Sort.DEFAULT_DIRECTION, "id");
+        Pageable pageable = new PageRequest(start, limit, sort);
+        Page<Hotel> page = hotelService.findAll(day, sPrice, ePrice, star, pageable);
+        ModelAndView mav = new ModelAndView("/page/hotel_search");
+        mav.addObject("page", page);
+        return mav;
+    }
+
 
 }
