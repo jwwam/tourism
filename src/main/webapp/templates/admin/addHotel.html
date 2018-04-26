@@ -76,6 +76,10 @@
                                                     <input class="form-control" placeholder="床型" name="bed" th:value="${hotel==null}? '' : ${hotel.bed}"/>
                                                 </div>
                                                 <div class="form-group">
+                                                    <label>星级</label>
+                                                    <input class="form-control" placeholder="星级" name="star" th:value="${hotel==null}? '' : ${hotel.star}"/>
+                                                </div>
+                                                <div class="form-group">
                                                     <label>图片</label>
                                                     <input type="file" name="file" id="file" accept=".jpg,.jpeg,.png,.bmp" multiple="multiple" onchange="preImg(this.id,'photo');"/>
                                                     <br />
