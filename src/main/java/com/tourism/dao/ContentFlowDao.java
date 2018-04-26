@@ -22,8 +22,8 @@ public interface ContentFlowDao extends PagingAndSortingRepository<ContentFlow, 
     ContentFlow findById(String id);
 
     @Modifying
-    @Query("UPDATE ContentFlow SET title=?1,detail=?2 WHERE id = ?3")
-    int updateLabel(String labelName, String labelDes, String id);
+    @Query("UPDATE ContentFlow SET title=?1,detail=?2 ,content=?3 ,img=?4 ,star=?5 ,time=?6 ,price=?7 WHERE id = ?8")
+    int updateContentFlow(String title, String detail,  String content,   String img,   String star,   String time,   String price, String id);
 
 /*    @Modifying
     @Query("update RecordFile set status=0,fileUrl=?1,createDate=?2,operateDate=?3,creuser=?4 where id = ?5")

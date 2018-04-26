@@ -36,36 +36,36 @@
         <div class="tabs_content tabs1_content">
 
             <div id="tabs-1">
-              <form action="javascript:;" class="form1">
+              <form action="../resScenery/search" class="form1">
                 <div class="row">
                   <div class="col-sm-4 col-md-2">
                     <div class="form-group">
                       <label for="inputName">景点地址：</label>
-                      <input type="text" class="form-control" id="inputName" name="name" value="景点地址" onBlur="if(this.value=='') this.value='景点地址'" onFocus="if(this.value =='景点地址' ) this.value=''"/>
+                      <input type="text" class="form-control" id="inputName" name="address"/>
                     </div>
                   </div>
                   <div class="col-sm-4 col-md-2">
                     <div class="form-group">
                       <label for="inputName">最低门票价格：</label>
-                      <input type="text" class="form-control" id="sPrice" name="sPrice" value="最低价格：" onBlur="if(this.value=='') this.value='最低价格'" onFocus="if(this.value =='最低价格' ) this.value=''"/>
+                      <input type="text" class="form-control" id="sPrice" name="sPrice"/>
                     </div>
                   </div>
                   <div class="col-sm-4 col-md-2">
                     <div class="form-group">
                       <label for="inputName">最高门票价格：</label>
-                      <input type="text" class="form-control" id="ePrice" name="ePrice" value="最高价格" onBlur="if(this.value=='') this.value='最高价格'" onFocus="if(this.value =='最高价格' ) this.value=''"/>
+                      <input type="text" class="form-control" id="ePrice" name="ePrice"/>
                     </div>
                   </div>
                   <div class="col-sm-4 col-md-2">
                     <div class="select1_wrapper">
                       <label>景点星级：</label>
                       <div class="select1_inner">
-                        <select class="select2 select" style="width: 100%">
+                        <select class="select2 select" style="width: 100%" name="star">
                           <option value="1">1</option>
                           <option value="2">2</option>
                           <option value="3">3</option>
-                          <option value="3">4</option>
-                          <option value="3">5</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
                         </select>
                       </div>
                     </div>

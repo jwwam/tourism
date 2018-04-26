@@ -43,7 +43,6 @@
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 
-
 	<!-- 模板引擎thymeleaf -->
 	<bean id="servletContextTemplateResolver"
 		  class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">

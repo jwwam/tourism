@@ -23,7 +23,7 @@ $(function(){
 	 })();
 
 	 function bindDataTables(){
-		 QuestionJobCodedataTables=  $("#datatable").dataTable({
+		 $("#datatable").dataTable({
 				"bFilter": false,//不使用自带搜索框
 				"bProcessing": true, // 是否显示取数据时的那个等待提示
 				"bServerSide": true,//这个用来指明是通过服务端来取数据
@@ -66,7 +66,17 @@ $(function(){
 				 },
 				"aoColumnDefs": [{
                     "mRender": function (data, type,row ) {
-                        return "<a herf='#' id='"+data+"' name='' class='detail' style='cursor: pointer;'>修改</a>  |  " +"<a herf='#' id='"+data+"' class='delete' style='cursor: pointer;'>刪除</a>";
+                        //data = "../upload/"+data;
+                        data = getImgPath()+"/images/"+data;
+                        //data = data.replace(/\\/g,"\/");
+                        /*return "<img src=file://"+ data +" width=\"200\" height=\"100\"/>";*/
+                        return "<img src="+ data +" width=\"200\" height=\"100\"/>";
+                    },
+                    sDefaultContent: '',
+                    aTargets: [4]       //列index
+                },{
+                    "mRender": function (data, type,row ) {
+                        return "<a herf='#' id='"+data+"' class='delete' style='cursor: pointer;'>刪除</a>";
                         //  |  <a herf='#' id='"+data+"' class='output' style='cursor: pointer;'>导出Excel</a>
                     },
                     sDefaultContent: '',
@@ -218,4 +228,12 @@ function preImg(sourceId, targetId) {
     imgPre.src = url;
     //$("photo").show();
     imgPre.style.display = "";
+}
+
+function getImgPath()
+{
+    var pathName = window.location.pathname.substring(1);
+    var webName = pathName == '' ? '' : pathName.substring(0, pathName.indexOf('/'));
+    var urlpath= window.location.protocol + '//' + window.location.host + '/'+ webName;
+    return urlpath.substring(0,urlpath.lastIndexOf("/"));
 }

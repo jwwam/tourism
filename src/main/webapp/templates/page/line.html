@@ -59,7 +59,7 @@
             <li class="element isotope-filter1 col-sm-4 col-xs-12" th:each="item : ${page.content}">
               <div class="thumb-isotope">
                 <div class="thumbnail clearfix">
-                  <a href="images/gallery01.jpg" rel="prettyPhoto[mix]" title="Photo">
+                  <a href="http://localhost:8080/images/gallery01.jpg" th:href="${'http://localhost:8080/images/'+item.img}" rel="prettyPhoto[mix]" title="Photo" target="_blank">
                     <figure>
                       <img th:src="${'http://localhost:8080/images/'+item.img}"  alt=""/><em></em>
                     </figure>

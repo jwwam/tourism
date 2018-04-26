@@ -5,9 +5,15 @@
  * */
 $(function(){
 
-/*     $("#thumb4").click(function(){
-         $('#delcfmModel').modal();
-     });*/
+//初始化加载的方法
+    (function init() {
+        var cfImgs = document.getElementsByName("cfImg");
+        for (var i = 0;i < cfImgs.length; i++){
+            console.log(cfImgs[i]);
+            //hotelImgs[i].attr("src", getImgPath()+"/images/"+hotelImgs[i].id);
+            cfImgs[i].src=getImgPath()+"/images/"+cfImgs[i].id;
+        }
+    })();
 
 });
 
@@ -156,4 +162,12 @@ function preImg(sourceId, targetId) {
     imgPre.src = url;
     //$("photo").show();
     imgPre.style.display = "";
+}
+
+function getImgPath()
+{
+    var pathName = window.location.pathname.substring(1);
+    var webName = pathName == '' ? '' : pathName.substring(0, pathName.indexOf('/'));
+    var urlpath= window.location.protocol + '//' + window.location.host + '/'+ webName;
+    return urlpath.substring(0,urlpath.lastIndexOf("/"));
 }

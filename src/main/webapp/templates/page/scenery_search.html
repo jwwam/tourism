@@ -18,9 +18,10 @@
 
 <div class="breadcrumbs1_wrapper">
   <div class="container">
-    <div class="breadcrumbs1"><a href="#">Home</a><span>/</span><a href="#">Pages</a><span>/</span>酒店住宿</div>
+    <div class="breadcrumbs1"><a href="#">Home</a><span>/</span><a href="#">Pages</a><span>/</span>景点推荐</div>
   </div>
 </div>
+
 
 <div id="content">
   <div class="container">
@@ -29,63 +30,35 @@
       <div class="tabs tabs2">
         <div class="tabs_tabs tabs1_tabs">
             <ul>
-              <li class="active hotels"><a href="#tabs-2">酒店住宿</a></li>
+              <li class="active hotels"><a href="#tabs-2">景点推荐</a></li>
             </ul>
         </div>
         <div class="tabs_content tabs1_content">
 
             <div id="tabs-1">
-              <form action="../resHotel/search" class="form1">
+              <form action="../resScenery/search" class="form1">
                 <div class="row">
-                  <!--<div class="col-sm-4 col-md-2">
+                  <div class="col-sm-4 col-md-2">
                     <div class="form-group">
-                      <label for="inputName">酒店地址：</label>
-                      <input type="text" class="form-control" id="inputName" name="name" value="酒店地址" onBlur="if(this.value=='') this.value='酒店地址'" onFocus="if(this.value =='酒店地址' ) this.value=''"/>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 col-md-2">
-                    <div class="select1_wrapper">
-                      <label>入住人数：</label>
-                      <div class="select1_inner">
-                        <select class="select2 select">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>-->
-                  <div class="col-sm-4 col-md-2">
-                    <div class="select1_wrapper">
-                      <label>入住天数：</label>
-                      <div class="select1_inner">
-                        <select class="select2 select" name="day">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                        </select>
-                      </div>
+                      <label for="inputName">景点地址：</label>
+                      <input type="text" class="form-control" id="inputName" name="address"/>
                     </div>
                   </div>
                   <div class="col-sm-4 col-md-2">
                     <div class="form-group">
-                      <label for="sPrice">最低价格：</label>
-                      <input type="text" class="form-control" id="sPrice" name="sPrice" />
+                      <label for="inputName">最低门票价格：</label>
+                      <input type="text" class="form-control" id="sPrice" name="sPrice"/>
                     </div>
                   </div>
                   <div class="col-sm-4 col-md-2">
                     <div class="form-group">
-                      <label for="ePrice">最高价格：</label>
+                      <label for="inputName">最高门票价格：</label>
                       <input type="text" class="form-control" id="ePrice" name="ePrice"/>
                     </div>
                   </div>
                   <div class="col-sm-4 col-md-2">
                     <div class="select1_wrapper">
-                      <label>酒店星级：</label>
+                      <label>景点星级：</label>
                       <div class="select1_inner">
                         <select class="select2 select" style="width: 100%" name="star">
                           <option value="1">1</option>
@@ -105,66 +78,24 @@
                 </div>
               </form>
               <div class="row">
-                <div class="col-sm-3">
-                  <form action="javascript:;" class="form2 form2_flights">
-                    <div class="select1_wrapper clearfix">
-                      <label style="font-size: 28px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;精品推荐</label>
-                    </div>
-                  </form>
-                  <ul class="ul3">
-                    <li><a href="#" >五星好评</a></li>
-                    <li><a href="#" >低价首选</a></li>
-                    <li><a href="#" >度假休闲</a></li>
-                    <li><a href="#" >购物周边</a></li>
-                    <li><a href="#" >汽车旅馆</a></li>
-                  </ul>
 
-                  <div class="sm_slider sm_slider1">
-                    <a class="sm_slider_prev" href="#"></a>
-                    <a class="sm_slider_next" href="#"></a>
-                    <div class="">
-                      <div class="carousel-box">
-                        <div class="inner">
-                          <div class="carousel main">
-                            <ul>
-                              <li>
-                                <div class="sm_slider_inner">
-                                  <div class="txt1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.</div>
-                                  <div class="txt2">George Smith</div>
-                                </div>
-                              </li>
-                              <li>
-                                <div class="sm_slider_inner">
-                                  <div class="txt1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.</div>
-                                  <div class="txt2">Adam Parker</div>
-                                </div>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
                 <div class="col-sm-9">
                   <div class="row">
                     <div class="col-sm-4" th:each="item : ${page.content}">
                       <div class="thumb4">
                         <div class="thumbnail clearfix">
                           <figure>
-                            <img alt="" th:id="${item.img}" name="hotelImg" width="200px" height="120px"/>
+                            <img name="sceneryImg" th:id="${item.img}" alt="" class="img-responsive"/>
                           </figure>
                           <div class="caption">
                             <div class="txt1" th:text="${item.title}"></div>
                             <div class="txt3 clearfix">
                               <div class="left_side">
                                 <div class="price" th:text="${item.price}"></div>
-                                <div class="nums" th:text="${item.bed}"></div>
+                                <div class="nums" th:text="${item.day}"></div>
                               </div>
                               <div class="right_side">
-                                <!--th:href="@{/scenery/detail(id=${item.id})}"-->
                                 <a href="#" th:name="${item.id}" onclick="showModal(this.name);" class="btn-default btn1">查看详情</a>
-
                               </div>
                             </div>
                           </div>
@@ -180,7 +111,7 @@
                             <div class="modal-body">
                               <div class="thumbnail clearfix">
                                 <figure>
-                                  <img name="hotelImg" th:id="${item.img}" alt="" />
+                                  <img name="sceneryImg" th:id="${item.img}" alt="" />
                                   <!--<ul class="social clearfix">
                                     <li th:each="pic,picStat : ${apidata.picList}">
                                       <img th:src="${pic.picUrlSmall}" alt="" class="img-responsive"/>
@@ -197,21 +128,42 @@
                                     <!--<div class="right_side"><a href="#" class="btn-default btn1" onclick="delcfm();">查看详情</a></div>-->
                                   </div>
                                 </div>
+                                <!--<figure>
+                                  <ul class="social clearfix">
+                                    <li th:each="price,priceStat : ${apidata.priceList}">
+                                      <span th:text="${price.type}"></span>
+                                      <ul class="social clearfix">
+                                        <li th:each="priceData,priceDataStat : ${price.priceDataList}">
+                                          <span th:text="${priceData.TicketName}"></span>
+                                          <span th:text="${priceData.Amount}"></span>
+                                          <span th:text="${priceData.AmountAdvice}"></span>
+                                        </li>
+                                      </ul>
+                                    </li>
+                                  </ul>
+                                </figure>-->
                               </div>
                             </div>
                             <div class="modal-footer">
                               <input type="hidden" id="id"/>
                               <button type="button" class="btn btn-default"  th:name="${item.id}" onclick="closeModal(this.name)">取消</button>
+                              <!--<a  onclick="urlSubmit()" class="btn btn-success" data-dismiss="modal">确定</a>-->
                             </div>
                           </div><!-- /.modal-content -->
                         </div><!-- /.modal-dialog -->
                       </div>
                     </div>
+                    <!--<div>
+                      <a th:href="@{/scenery/view(start=0)}">[首页]</a>
+                      <a th:if="${not page.isFirst()}" th:href="@{/scenery/view(start=${page.number-1})}">[上页]</a>
+                      <a th:if="${not page.isLast()}" th:href="@{/scenery/view(start=${page.number+1})}">[下页]</a>
+                      <a th:href="@{/scenery/view(start=${page.totalPages-1})}">[末页]</a>
+                    </div>-->
                   </div>
                   <div class="pager_wrapper">
                     <ul class="pager clearfix">
-                      <li class="prev"><a th:if="${not page.isFirst()}" th:href="@{/resHotel/search(start=${page.number-1})}">上一页</a></li>
-                      <li class="next"><a th:if="${not page.isLast()}" th:href="@{/resHotel/search(start=${page.number+1})}">下一页</a></li>
+                      <li class="prev"><a th:if="${not page.isFirst()}" th:href="@{/resScenery/search(start=${page.number-1})}">上一页</a></li>
+                      <li class="next"><a th:if="${not page.isLast()}" th:href="@{/resScenery/search(start=${page.number+1})}">下一页</a></li>
                     </ul>
                   </div>
                 </div>
@@ -225,6 +177,7 @@
   </div>
 </div>
 
+
 <div class="bot2_wrapper">
   <div class="container">
     <div class="left_side">
@@ -235,10 +188,6 @@
 </div>
 </div>
 <script src="/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
-<script type="text/javascript" src="../componets/business/hotel.js" ></script>
-<script>
-
-
-</script>
+<script type="text/javascript" src="../componets/business/scenery.js" ></script>
 </body>
 </html>

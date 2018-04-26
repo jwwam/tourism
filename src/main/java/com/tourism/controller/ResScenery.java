@@ -36,4 +36,18 @@ public class ResScenery extends BaseController {
     }
 
 
+    @RequestMapping(value="/search")
+    public ModelAndView search(@RequestParam(value = "start", defaultValue = "0") Integer start,
+                               @RequestParam(value = "limit", defaultValue = "9") Integer limit,
+                               @RequestParam String address, @RequestParam String sPrice,
+                               @RequestParam String ePrice, @RequestParam String star){
+        start = start < 0 ? 0 : start;
+        Sort sort = new Sort(Sort.DEFAULT_DIRECTION, "id");
+        Pageable pageable = new PageRequest(start, limit, sort);
+        Page<Scenery> page = sceneryService.findAll(address, sPrice, ePrice, star, pageable);
+        ModelAndView mav = new ModelAndView("/page/scenery_search");
+        mav.addObject("page", page);
+        return mav;
+    }
+
 }

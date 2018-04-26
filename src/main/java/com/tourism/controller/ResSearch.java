@@ -4,7 +4,6 @@ import com.show.api.ShowApiRequest;
 import com.tourism.controller.base.BaseController;
 import com.tourism.entity.*;
 import com.tourism.service.DesktopService;
-import com.tourism.utils.StringUtils;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 

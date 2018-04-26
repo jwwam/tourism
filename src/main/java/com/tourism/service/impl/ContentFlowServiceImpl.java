@@ -45,6 +45,7 @@ public class ContentFlowServiceImpl implements ContentFlowService {
         String id = "";
         /*String path = request.getSession().getServletContext().getRealPath("/");
         String path2 = ContextLoader.getCurrentWebApplicationContext().getServletContext().getRealPath("/");*/
+        String path = System.getProperty("catalina.home")+"\\webapps\\images\\";
         try{
             ContentFlow cf = new ContentFlow();
             System.out.println("upload");
@@ -65,7 +66,7 @@ public class ContentFlowServiceImpl implements ContentFlowService {
             List<FileItem> itemList=upload.parseRequest(request);
             System.out.println(itemList.size());
             //String uploadPathTemp = uploadPath +"\\"+ DateUtils.yyyyMMdd(new Date());
-            String uploadPathTemp = uploadFilsPath;
+            String uploadPathTemp = path;
             File file1 =  new File(uploadPathTemp);
             if( !file1 .isDirectory()){
                 file1.mkdirs();
@@ -120,14 +121,23 @@ public class ContentFlowServiceImpl implements ContentFlowService {
             }
             //@Query("update RecordFile set status=0,fileUrl=?1,createDate=?2,operateDate=?3,creuser=?4 where id = ?5")
             //return  contentFlowDao.updateFileURL(cf,new Date(),new Date());
-            String uuid = UUID.randomUUID().toString(); //获取UUID并转化为String对象
-            uuid = uuid.replace("-", "");
-            cf.setId(uuid);
-            ContentFlow cfResult = contentFlowDao.save(cf);
-            if(cfResult == null ){
-                return -1;
+            if(StringUtils.isNotEmpty(cf.getId())){
+                int  result = contentFlowDao.updateContentFlow(cf.getTitle(), cf.getDetail(),cf.getContent(), cf.getImg(), cf.getStar(), cf.getTime(), cf.getPrice(), cf.getId());
+                if(result < 0) {
+                    return -1;
+                }else{
+                    return 1;
+                }
             }else{
-                return 1;
+                String uuid = UUID.randomUUID().toString(); //获取UUID并转化为String对象
+                uuid = uuid.replace("-", "");
+                cf.setId(uuid);
+                ContentFlow cfResult = contentFlowDao.save(cf);
+                if(cfResult == null ){
+                    return -1;
+                }else{
+                    return 1;
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -137,34 +147,6 @@ public class ContentFlowServiceImpl implements ContentFlowService {
 
     public List<ContentFlow> getAllLabel() {
         return contentFlowDao.findAll();
-    }
-
-    public String[] save(ContentFlow label) {
-        String [] array = new String[2];
-        System.out.println("aaaaaaaa:"+label.getId());
-        if( label.getId() == null
-                || label.getId().equals("")){
-            String uuid = UUID.randomUUID().toString(); //获取UUID并转化为String对象
-            uuid = uuid.replace("-", "");
-            label.setId(uuid);
-            array[1] = uuid;
-            ContentFlow userResult = contentFlowDao.save(label);
-            if(userResult == null ){
-                array[0] = "false";
-            }else{
-                array[0] = "true";
-            }
-        }else{
-            int  result = contentFlowDao.updateLabel(label.getContent(), label.getTitle(), label.getId());
-            if(result < 0) {
-                array[0] = "false";
-            }else{
-                array[0] = "true";
-            }
-            array[1] = label.getId();
-        }
-
-        return array;
     }
 
     public void delete(ContentFlow label) {

@@ -14,8 +14,6 @@ public interface ContentFlowService {
 
     List<ContentFlow> getAllLabel();
 
-    String[] save(ContentFlow label);
-
     void delete(ContentFlow label);
 
     Page<ContentFlow> findByLabelName(String labelName, Pageable pageable);

@@ -11,8 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.data.jpa.domain.Specifications;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
@@ -42,6 +48,36 @@ public class SceneryServiceImpl implements SceneryService{
 
     public Page<Scenery> findAll(Pageable pageable) {
         return sceneryDao.findAll(pageable);
+    }
+
+    public Page<Scenery> findAll(String address, String sPrice, String ePrice, String star, Pageable pageable) {
+        return sceneryDao.findAll(Specifications.where(getWhereClause(address, sPrice, ePrice, star)),pageable);
+    }
+
+    public Specification<Scenery> getWhereClause(final String address, final String sPrice, final String ePrice, final String star) {
+        return new Specification<Scenery>() {
+            @Override
+            public Predicate toPredicate(Root<Scenery> r, CriteriaQuery<?> q, CriteriaBuilder cb) {
+                Predicate predicate = cb.conjunction();
+                if(StringUtils.isNotEmpty(address)){
+                    predicate.getExpressions().add(
+                            cb.like(r.<String>get("address"), "%" + StringUtils.trim(address) + "%")
+                    );
+                }
+                if(StringUtils.isNotEmpty(sPrice)&&StringUtils.isNotEmpty(ePrice)){
+                    predicate.getExpressions().add(
+                            cb.between(r.<String>get("price"), sPrice, ePrice)
+                    );
+                }
+                if(StringUtils.isNotEmpty(star)){
+                    predicate.getExpressions().add(
+                            cb.like(r.<String>get("star"),"%" + StringUtils.trim(star) + "%")
+                    );
+                }
+                return predicate;
+            }
+        };
+
     }
 
     public String[] save(Scenery s) {

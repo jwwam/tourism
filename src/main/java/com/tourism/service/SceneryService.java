@@ -13,6 +13,8 @@ public interface SceneryService {
 
     Page<Scenery> findAll(Pageable pageable);
 
+    Page<Scenery> findAll(String address, String sPrice, String ePrice, String star, Pageable pageable);
+
     String[] save(Scenery s);
 
     void delete(Scenery s);
