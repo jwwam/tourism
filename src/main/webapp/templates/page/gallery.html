@@ -53,174 +53,21 @@
       <div class="isotope-box">
         <div id="container" class="clearfix">
           <ul class="thumbnails clearfix" id="isotope-items">
-            <div class="grid-sizer col-sm-4"></div>
-            <div class="gutter-sizer"></div>
-
-            <li class="element isotope-filter3 col-sm-4 col-xs-12">
-              <div class="thumb-isotope">
-                <div class="thumbnail clearfix">
-                  <a href="images/gallery01.jpg" rel="prettyPhoto[mix]" title="Photo">
-                    <figure>
-                      <img th:src="@{/images/gallery01.jpg}" alt=""/><em></em>
-                    </figure>
-                    <div class="caption">
-                      <div class="txt1">cannes, france</div>
-                      <div class="txt2">hotel carlton</div>
-                    </div>
-                  </a>
+              <li class="element isotope-filter3 col-sm-4 col-xs-12" th:each="item : ${page.content}">
+                <div class="thumb-isotope">
+                  <div class="thumbnail clearfix">
+                    <a href="images/gallery01.jpg" th:href="${'http://localhost:8080/images/'+item.img}" rel="prettyPhoto[mix]" title="Photo" target="_blank">
+                      <figure>
+                        <img th:src="${'http://localhost:8080/images/'+item.img}"  alt=""/><em></em>
+                      </figure>
+                      <div class="caption">
+                        <div class="txt1" th:text="${item.title}">cannes, france</div>
+                        <div class="txt2" th:text="${item.detail}">hotel carlton</div>
+                      </div>
+                    </a>
+                  </div>
                 </div>
-              </div>
-            </li>
-            <li class="element isotope-filter1 isotope-filter2 col-sm-8 col-xs-12">
-              <div class="thumb-isotope">
-                <div class="thumbnail clearfix">
-                  <a href="images/gallery02.jpg" rel="prettyPhoto[mix]" title="Photo">
-                    <figure>
-                      <img th:src="@{/images/gallery02.jpg}" alt=""/><em></em>
-                    </figure>
-                    <div class="caption">
-                      <div class="txt1">cannes, france</div>
-                      <div class="txt2">hotel carlton</div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </li>
-            <li class="element isotope-filter3 col-sm-4 col-xs-12">
-              <div class="thumb-isotope">
-                <div class="thumbnail clearfix">
-                  <a href="images/gallery03.jpg" rel="prettyPhoto[mix]" title="Photo">
-                    <figure>
-                      <img th:src="@{/images/gallery03.jpg}" alt=""/><em></em>
-                    </figure>
-                    <div class="caption">
-                      <div class="txt1">cannes, france</div>
-                      <div class="txt2">hotel carlton</div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </li>
-            <li class="element isotope-filter1 col-sm-4 col-xs-12">
-              <div class="thumb-isotope">
-                <div class="thumbnail clearfix">
-                  <a href="images/gallery04.jpg" rel="prettyPhoto[mix]" title="Photo">
-                    <figure>
-                      <img th:src="@{/images/gallery04.jpg}" alt=""/><em></em>
-                    </figure>
-                    <div class="caption">
-                      <div class="txt1">cannes, france</div>
-                      <div class="txt2">hotel carlton</div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </li>
-            <li class="element isotope-filter1 col-sm-4 col-xs-12">
-              <div class="thumb-isotope">
-                <div class="thumbnail clearfix">
-                  <a href="images/gallery05.jpg" rel="prettyPhoto[mix]" title="Photo">
-                    <figure>
-                      <img th:src="@{/images/gallery05.jpg}" alt=""/><em></em>
-                    </figure>
-                    <div class="caption">
-                      <div class="txt1">cannes, france</div>
-                      <div class="txt2">hotel carlton</div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </li>
-            <li class="element isotope-filter3 isotope-filter2 col-sm-4 col-xs-12">
-              <div class="thumb-isotope">
-                <div class="thumbnail clearfix">
-                  <a href="images/gallery07.jpg" rel="prettyPhoto[mix]" title="Photo">
-                    <figure>
-                      <img th:src="@{/images/gallery07.jpg}" alt=""/><em></em>
-                    </figure>
-                    <div class="caption">
-                      <div class="txt1">cannes, france</div>
-                      <div class="txt2">hotel carlton</div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </li>
-            <li class="element isotope-filter1 col-sm-4 col-xs-12">
-              <div class="thumb-isotope">
-                <div class="thumbnail clearfix">
-                  <a href="images/gallery06.jpg" rel="prettyPhoto[mix]" title="Photo">
-                    <figure>
-                      <img th:src="@{/images/gallery06.jpg}" alt=""/><em></em>
-                    </figure>
-                    <div class="caption">
-                      <div class="txt1">cannes, france</div>
-                      <div class="txt2">hotel carlton</div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </li>
-            <li class="element isotope-filter2 col-sm-12 col-xs-12">
-              <div class="thumb-isotope">
-                <div class="thumbnail clearfix">
-                  <a href="images/gallery08.jpg" rel="prettyPhoto[mix]" title="Photo">
-                    <figure>
-                      <img th:src="@{/images/gallery08.jpg}" alt=""/><em></em>
-                    </figure>
-                    <div class="caption">
-                      <div class="txt1">cannes, france</div>
-                      <div class="txt2">hotel carlton</div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </li>
-            <li class="element isotope-filter3 col-sm-4 col-xs-12">
-              <div class="thumb-isotope">
-                <div class="thumbnail clearfix">
-                  <a href="images/gallery09.jpg" rel="prettyPhoto[mix]" title="Photo">
-                    <figure>
-                      <img th:src="@{/images/gallery09.jpg}" alt=""/><em></em>
-                    </figure>
-                    <div class="caption">
-                      <div class="txt1">cannes, france</div>
-                      <div class="txt2">hotel carlton</div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </li>
-            <li class="element isotope-filter5 col-sm-8 col-xs-12">
-              <div class="thumb-isotope">
-                <div class="thumbnail clearfix">
-                  <a href="images/gallery11.jpg" rel="prettyPhoto[mix]" title="Photo">
-                    <figure>
-                      <img th:src="@{/images/gallery11.jpg}" alt=""/><em></em>
-                    </figure>
-                    <div class="caption">
-                      <div class="txt1">cannes, france</div>
-                      <div class="txt2">hotel carlton</div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </li>
-            <li class="element isotope-filter1 isotope-filter3 col-sm-4 col-xs-12">
-              <div class="thumb-isotope">
-                <div class="thumbnail clearfix">
-                  <a href="images/gallery10.jpg" rel="prettyPhoto[mix]" title="Photo">
-                    <figure>
-                      <img th:src="@{/images/gallery10.jpg}" alt=""/><em></em>
-                    </figure>
-                    <div class="caption">
-                      <div class="txt1">cannes, france</div>
-                      <div class="txt2">hotel carlton</div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </li>
+              </li>
           </ul>
         </div>
       </div>
@@ -239,5 +86,6 @@
 </div>
 </div>
 <script src="/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" src="../componets/business/gallery.js" ></script>
 </body>
 </html>
