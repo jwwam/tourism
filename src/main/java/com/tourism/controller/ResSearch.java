@@ -1,6 +1,7 @@
 package com.tourism.controller;
 
 import com.show.api.ShowApiRequest;
+import com.tourism.common.ApiData;
 import com.tourism.controller.base.BaseController;
 import com.tourism.entity.*;
 import com.tourism.service.DesktopService;
@@ -30,14 +31,9 @@ public class ResSearch extends BaseController {
 
     @RequestMapping(value="/getData")
     public String view(HttpServletRequest request){
+        ApiData ad = new ApiData();
         String keyword = request.getParameter("keyword");
-        String res=new ShowApiRequest("http://route.showapi.com/268-1","58346","aaf02e30d642409d8e0e82143373af62")
-                .addTextPara("keyword",keyword)
-                .addTextPara("proId","")
-                .addTextPara("cityId","")
-                .addTextPara("areaId","")
-                .addTextPara("page","")
-                .post();
+        String res = ad.getApiData(keyword);
         //System.out.println(res);
 
         JSONObject json = JSONObject.fromObject(res);
@@ -182,5 +178,8 @@ public class ResSearch extends BaseController {
 
         return "/page/search";
     }
+
+
+
 
 }
