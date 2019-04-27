@@ -1,6 +1,6 @@
 # tourism
 项目栈：SpringMVC SpringDataJPA MySQL  
-#注意：
+#注意：  
 推荐使用Idea启动项目  
 项目启动后会自动创建表，需要先在MySQL新建一个“tourism”数据库  
 图片加载不出来是因为springmvc拦截  
