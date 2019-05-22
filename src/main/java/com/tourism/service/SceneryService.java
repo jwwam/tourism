@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 public interface SceneryService {
 
@@ -18,7 +19,7 @@ public interface SceneryService {
     String[] save(Scenery s);
 
     void delete(Scenery s);
-
+     //推荐一个景点的相似景点
+    List<Scenery> recommend(String sceneryName);
     int upload (HttpServletRequest request, HttpServletResponse response);
-
 }

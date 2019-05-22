@@ -55,6 +55,7 @@ public class HomeController {
         request.setAttribute("contentFlowList",contentFlowList);
         request.setAttribute("topFlowList",topFlowList);
         List<Desktop> desktopList = desktopService.getAll();
+        System.out.println(desktopList.size());
         if(desktopList!=null||desktopList.size()!=0){
             request.getSession().setAttribute("desktop",desktopList.get(0));
         }else{

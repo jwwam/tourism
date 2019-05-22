@@ -1,8 +1,11 @@
 package com.tourism.service.impl;
 
+import com.tourism.controller.base.CFUtils;
 import com.tourism.dao.SceneryDao;
 import com.tourism.entity.Scenery;
+import com.tourism.entity.Score;
 import com.tourism.service.SceneryService;
+import com.tourism.service.ScoreService;
 import com.tourism.utils.StringUtils;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -24,24 +27,19 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.util.List;
-import java.util.UUID;
-
+import java.util.*;
 @Service("sceneryService")
 public class SceneryServiceImpl implements SceneryService{
-
     @Value("#{configProperties['icb.uploadPath']}")
     private String uploadPath;
-
     @Value("#{configProperties['icb.tempPath']}")
     private String tempPath;
-
     @Value("#{configProperties['icb.uploadFilsPath']}")
     private String uploadFilsPath;
-
+    @Autowired
+    ScoreService scoreService;
     @Autowired
     SceneryDao sceneryDao;
-
     public Scenery findById(String id) {
         return sceneryDao.findById(id);
     }
@@ -86,6 +84,58 @@ public class SceneryServiceImpl implements SceneryService{
 
     public void delete(Scenery s) {
         sceneryDao.delete(s);
+    }
+    @Override
+    public List<Scenery> recommend(String sceneryName) {
+        String sceneryId = "";
+       List<Scenery> sceneryList= sceneryDao.findAll();
+        for (int i = 0; i < sceneryList.size(); i++) {
+            if(sceneryList.get(i).getTitle().equals(sceneryName)){
+                sceneryId = sceneryList.get(i).getId();
+            }
+        }
+        double[] baseGrade = new double[5];
+        int baseFlag = 0;
+        double[] base = new double[5];
+        HashMap<String,double[]> grandMap = new HashMap<String, double[]>();
+        //获取评分列表
+        List<Score> list = scoreService.findAll();
+        //按照id排序，方便区分每个景点的评分
+        Collections.sort(list);
+        //遍历评分列表
+        for (int i = 0; i < list.size(); i++) {
+            //因为只有5个用户评价，所以每隔5个评分 保存一次
+            //获得用户对每个景点的评分向量
+            if(i != 0 && i % 5 == 0){
+                if(list.get(i- 1).getSceneryId().equals(sceneryId)){
+                    baseGrade = base;
+                    baseFlag = 0;
+                }else {
+                    double[] temp = new double[5];
+                    for (int j = 0; j < temp.length; j++) {
+                        temp[j] = base[j];
+                    }
+                    grandMap.put(list.get(i - 1).getSceneryId(), temp);
+                    baseFlag = 0;
+                }
+            }
+            base[baseFlag ++] = Double.parseDouble(list.get(i).getGrade());
+        }
+        HashMap<String,Double> resultMap = new HashMap<String, Double>();
+       // List<Double> result = new ArrayList<Double>();
+        //遍历评分向量集合  和基向量作比较
+        for (String key: grandMap.keySet()) {
+           double[] temp =  grandMap.get(key);
+           double baseResult =  CFUtils.cosineSimilarity(baseGrade,temp);
+           if(baseResult > 0.95) {
+               resultMap.put(key, baseResult);
+           }
+        }
+        List<Scenery>  resultScenery = new ArrayList<Scenery>();
+        for (String key: resultMap.keySet()) {
+            resultScenery.add(sceneryDao.findById(key));
+        }
+        return resultScenery;
     }
 
     public int upload(HttpServletRequest request, HttpServletResponse response) {

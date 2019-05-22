@@ -9,8 +9,6 @@ $(function(){
 	 (function init(){
          var sceneryImgs = document.getElementsByName("sceneryImg");
          for (var i = 0;i < sceneryImgs.length; i++){
-             console.log(sceneryImgs[i]);
-             //hotelImgs[i].attr("src", getImgPath()+"/images/"+hotelImgs[i].id);
              sceneryImgs[i].src=getImgPath()+"/images/"+sceneryImgs[i].id;
          }
 	 })();

@@ -25,17 +25,11 @@ public class ResSearch extends BaseController {
 
     @Autowired
     DesktopService desktopService;
-
-    //public static String showapi_appid = "58346";
-    //public static String showapi_sign = "aaf02e30d642409d8e0e82143373af62";
-
     @RequestMapping(value="/getData")
     public String view(HttpServletRequest request){
         ApiData ad = new ApiData();
         String keyword = request.getParameter("keyword");
         String res = ad.getApiData(keyword);
-        //System.out.println(res);
-
         JSONObject json = JSONObject.fromObject(res);
         JSONArray jsarr = json.getJSONObject("showapi_res_body").getJSONObject("pagebean").getJSONArray("contentlist");
         System.out.println(jsarr);
@@ -140,42 +134,6 @@ public class ResSearch extends BaseController {
             Desktop desktop = new Desktop();
             request.setAttribute("desktop",desktop);
         }
-        /*try{
-            String keyword = "贺兰山";
-            //String keyword = request.getParameter("keyword");
-
-            URL u = new URL("http://route.showapi.com/268-1?showapi_appid="+ showapi_appid +"&keyword="+ keyword +"&showapi_sign="+ showapi_sign);
-            //http://route.showapi.com/268-1?showapi_appid=58346&keyword=贺兰山&showapi_sign=aaf02e30d642409d8e0e82143373af62
-            InputStream in = u.openStream();
-            ByteArrayOutputStream out = new ByteArrayOutputStream();
-            try {
-                byte buf[] = new byte[1024];
-                int read = 0;
-                while ((read = in .read(buf)) > 0) {
-                    out.write(buf, 0, read);
-                }
-            } finally {
-                if ( in != null) {
-                    in .close();
-                }
-            }
-            byte b[] = out.toByteArray();
-            String res = new String(b, "utf-8");
-            //System.out.println(res);
-            JSONObject json = JSONObject.fromObject(res);
-            JSONArray jsarr = json.getJSONObject("showapi_res_body").getJSONObject("pagebean").getJSONArray("contentlist");
-            System.out.println(jsarr);
-            for (int i = 0; i < jsarr.size(); i++) {
-                JSONObject ao = jsarr.getJSONObject(i);
-                String name = ao.get("name").toString();
-                System.out.println(name);
-            }
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }*/
-
-
         return "/page/search";
     }
 

@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<title>Hotels</title>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Your description"/>
+<meta name="keywords" content="Your keywords"/>
+<meta name="author" content="Your name"/>
+  <script src="/js/cform.js" th:src="@{/js/cform.js}"></script>
+</head>
+<body class="not-front page-pages page-hotels">
+
+<div id="main">
+  <!-- head 头部 -->
+  <div id="head" th:include="common/index_header :: copy"></div>
+
+<div class="breadcrumbs1_wrapper">
+  <div class="container">
+    <div class="breadcrumbs1"><a href="#">Home</a><span>/</span><a href="#">Pages</a><span>/</span>美食之家</div>
+  </div>
+</div>
+
+<div id="content">
+  <div class="container">
+
+    <div class="tabs_wrapper tabs1_wrapper">
+      <div class="tabs tabs2">
+        <div class="tabs_tabs tabs1_tabs">
+            <ul>
+              <li class="active hotels"><a href="#tabs-2">美食之家</a></li>
+            </ul>
+        </div>
+        <div class="tabs_content tabs1_content">
+
+            <div id="tabs-1">
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class="sm_slider sm_slider1">
+                    <a class="sm_slider_prev" href="#"></a>
+                    <a class="sm_slider_next" href="#"></a>
+                    <div class="">
+                      <div class="carousel-box">
+                        <div class="inner">
+                          <div class="carousel main">
+                            <ul>
+                              <li>
+                                <div class="sm_slider_inner">
+                                  <div class="txt1">一路邮我</div>
+                                  <div class="txt2">邮电</div>
+                                </div>
+                              </li>
+                              <li>
+                                <div class="sm_slider_inner">
+                                  <div class="txt1">富强 民主 文明 和谐 自由 平等 公正 法制 爱国 敬业 友善</div>
+                                  <div class="txt2">社会主义核心价值观</div>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-9">
+                  <div class="row">
+                    <div class="col-sm-4" th:each="item : ${page.content}">
+                      <div class="thumb4">
+                        <div class="thumbnail clearfix">
+                          <figure>
+                            <img alt="" th:id="${item.img}" name="hotelImg" width="200px" height="120px"/>
+                          </figure>
+                          <div class="caption">
+                            <div class="txt1" th:text="${item.title}"></div>
+                            <div class="txt3 clearfix">
+                              <div class="left_side">
+                                <div class="price" th:text="${item.price}"></div>
+                                <div class="txt1" th:text="${item.address}"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pager_wrapper">
+                    <ul class="pager clearfix">
+                      <li class="prev"><a th:if="${not page.isFirst()}" th:href="@{/resHotel/view(start=${page.number-1})}">上一页</a></li>
+                      <li class="next"><a th:if="${not page.isLast()}" th:href="@{/resHotel/view(start=${page.number+1})}">下一页</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="bot2_wrapper">
+  <div class="container">
+    <div class="left_side">
+      关于小鹏<a target="_blank" href=""></a>
+    </div>
+    <div class="right_side"></div>
+  </div>
+</div>
+</div>
+<script src="/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" src="../componets/business/hotel.js" ></script>
+<script>
+
+
+</script>
+</body>
+</html>

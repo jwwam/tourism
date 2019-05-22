@@ -67,4 +67,7 @@
 		<description>request监听器</description>
 		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
 	</listener>
+	<welcome-file-list>
+		<welcome-file>/templates/page/index.html</welcome-file>
+	</welcome-file-list>
 </web-app>

@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<title>Hotels</title>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Your description"/>
+<meta name="keywords" content="Your keywords"/>
+<meta name="author" content="Your name"/>
+  <script src="/js/cform.js" th:src="@{/js/cform.js}"></script>
+</head>
+<body class="not-front page-pages page-hotels">
+
+<div id="main">
+  <!-- head 头部 -->
+  <div id="head" th:include="common/index_header :: copy"></div>
+
+<div class="breadcrumbs1_wrapper">
+  <div class="container">
+    <div class="breadcrumbs1"><a href="#">Home</a><span>/</span><a href="#">Pages</a><span>/</span>景点推荐</div>
+  </div>
+</div>
+
+
+<div id="content">
+  <div class="container">
+
+    <div class="tabs_wrapper tabs1_wrapper">
+      <div class="tabs tabs2">
+        <div class="tabs_tabs tabs1_tabs">
+            <ul>
+              <li class="active hotels"><a href="#tabs-2">景点推荐</a></li>
+            </ul>
+        </div>
+        <div class="tabs_content tabs1_content">
+
+            <div id="tabs-1">
+              <form action="../resScenery/recommend" class="form1">
+                <div class="row">
+                  <div class="col-sm-4 col-md-2">
+                    <div class="form-group">
+                      <label for="commend">您喜欢：</label>
+                      <input type="text" class="form-control" id="commend" name="commend"/>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 col-md-2">
+                    <div class="button1_wrapper">
+                      <button type="submit" class="btn-default btn-form1-submit">点击推荐</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <div class="row">
+
+                <div class="col-sm-9">
+                  <div class="row">
+                    <div class="col-sm-4" th:each="item : ${page.content}">
+                      <div class="thumb4">
+                        <div class="thumbnail clearfix">
+                          <figure>
+                            <img name="sceneryImg" th:id="${item.img}" alt="" class="img-responsive"/>
+                          </figure>
+                          <div class="caption">
+                            <div class="txt1" th:text="${item.title}"></div>
+                            <div class="txt3 clearfix">
+                              <div class="left_side">
+                                <div class="price" th:text="${item.price}"></div>
+                                <div class="nums" th:text="${item.day}"></div>
+                              </div>
+                              <div class="right_side">
+                                <a href="#" th:name="${item.id}" onclick="showModal(this.name);" class="btn-default btn1">查看详情</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal fade" th:id="${item.id}">
+                        <div class="modal-dialog">
+                          <div class="modal-content message_align">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                              <h4 class="modal-title">详细信息</h4>
+                            </div>
+                            <div class="modal-body">
+                              <div class="thumbnail clearfix">
+                                <figure>
+                                  <img name="sceneryImg" th:id="${item.img}" alt="" />
+                                  <!--<ul class="social clearfix">
+                                    <li th:each="pic,picStat : ${apidata.picList}">
+                                      <img th:src="${pic.picUrlSmall}" alt="" class="img-responsive"/>
+                                    </li>
+                                  </ul>-->
+                                </figure>
+                                <div class="caption">
+                                  名称：<div class="txt1" th:text="${item.title}"></div>
+                                  <div class="txt3 clearfix">
+                                    <div class="left_side">
+                                      价格：<div class="price" th:text="${item.price}"></div>
+                                      星级：<div class="nums" th:text="${item.price}"></div>
+                                    </div>
+                                    <!--<div class="right_side"><a href="#" class="btn-default btn1" onclick="delcfm();">查看详情</a></div>-->
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <input type="hidden" id="id"/>
+                              <button type="button" class="btn btn-default"  th:name="${item.id}" onclick="closeModal(this.name)">取消</button>
+                              <!--<a  onclick="urlSubmit()" class="btn btn-success" data-dismiss="modal">确定</a>-->
+                            </div>
+                          </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pager_wrapper">
+                    <ul class="pager clearfix">
+                      <li class="prev"><a th:if="${not page.isFirst()}" th:href="@{/resScenery/view(start=${page.number-1})}">上一页</a></li>
+                      <li class="next"><a th:if="${not page.isLast()}" th:href="@{/resScenery/view(start=${page.number+1})}">下一页</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="bot2_wrapper">
+  <div class="container">
+    <div class="left_side">
+      关于小鹏<a target="_blank" href=""></a>
+    </div>
+    <div class="right_side"></div>
+  </div>
+</div>
+</div>
+<script src="/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" src="../componets/business/scenery.js" ></script>
+</body>
+</html>

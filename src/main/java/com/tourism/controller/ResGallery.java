@@ -35,9 +35,6 @@ public class ResGallery extends BaseController {
         Pageable pageable = new PageRequest(start, limit, sort);
         Page<Gallery> page = galleryService.findAll(pageable);
         ModelAndView mav = new ModelAndView("/page/gallery");
-        //request.setAttribute("labelList",contentFlowService.getAllLabel());
-        //request.setAttribute("clickId","label");
-        //return "/page/scenery";
         mav.addObject("page", page);
         return mav;
     }

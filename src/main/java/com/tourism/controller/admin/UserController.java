@@ -1,11 +1,11 @@
 package com.tourism.controller.admin;
-
 import com.tourism.common.DataTablesParam;
 import com.tourism.controller.base.BaseController;
+import com.tourism.entity.Score;
 import com.tourism.entity.User;
+import com.tourism.service.ScoreService;
 import com.tourism.service.UserService;
 import com.tourism.utils.BuildPageRequest;
-import com.tourism.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
@@ -14,8 +14,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 @RequestMapping(value="/user")
@@ -23,12 +23,12 @@ public class UserController extends BaseController {
 
     @Autowired
     UserService userService;
-
+    @Autowired
+    ScoreService scoreService;
     @RequestMapping(value="/add")
     public String view(HttpServletRequest request){
         return "/admin/addUser";
     }
-
     @RequestMapping(value="/getList")
     public String getList(HttpServletRequest request){
         return "/admin/userList";

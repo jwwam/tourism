@@ -54,17 +54,11 @@ public class HotelController extends BaseController {
 
     @RequestMapping(value="/upload")
     public String upload (HttpServletRequest request,HttpServletResponse response){
-
-        //String registID = (String) request.getSession().getAttribute("registID");
-        String registID = "";
         int result = hotelService.upload(request, response);
-
         if( result < 0 ){
             request.setAttribute("failMsg", "上传失败，请重新上传！");
-            //return "/gongshang/recordUpload";
             return "/admin/addHotel";
         }else{
-            //return "/gongshang/recordReview";
             return "/admin/hotelList";
         }
 

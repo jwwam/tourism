@@ -55,10 +55,8 @@ $(function(){
             },
             "aoColumnDefs": [{
                 "mRender": function (data, type,row ) {
-                    //data = "../upload/"+data;
+                    //data = "../upload/"+data;   getImgPath()+
                     data = getImgPath()+"/images/"+data;
-                    //data = data.replace(/\\/g,"\/");
-                    /*return "<img src=file://"+ data +" width=\"200\" height=\"100\"/>";*/
                     return "<img src="+ data +" width=\"200\" height=\"100\"/>";
                 },
                 sDefaultContent: '',

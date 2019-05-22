@@ -29,7 +29,7 @@
       <div class="tabs tabs2">
         <div class="tabs_tabs tabs1_tabs">
             <ul>
-              <li class="active hotels"><a href="#tabs-2">酒店住宿</a></li>
+              <li class="active hotels"><a href="#tabs-2">美食之家</a></li>
             </ul>
         </div>
         <div class="tabs_content tabs1_content">
@@ -37,26 +37,6 @@
             <div id="tabs-1">
               <form action="../resHotel/search" class="form1">
                 <div class="row">
-                  <!--<div class="col-sm-4 col-md-2">
-                    <div class="form-group">
-                      <label for="inputName">酒店地址：</label>
-                      <input type="text" class="form-control" id="inputName" name="name" value="酒店地址" onBlur="if(this.value=='') this.value='酒店地址'" onFocus="if(this.value =='酒店地址' ) this.value=''"/>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 col-md-2">
-                    <div class="select1_wrapper">
-                      <label>入住人数：</label>
-                      <div class="select1_inner">
-                        <select class="select2 select">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>-->
                   <div class="col-sm-4 col-md-2">
                     <div class="select1_wrapper">
                       <label>入住天数：</label>
@@ -112,11 +92,11 @@
                     </div>
                   </form>
                   <ul class="ul3">
-                    <li><a href="#" >五星好评</a></li>
-                    <li><a href="#" >低价首选</a></li>
-                    <li><a href="#" >度假休闲</a></li>
-                    <li><a href="#" >购物周边</a></li>
-                    <li><a href="#" >汽车旅馆</a></li>
+                    <li><a href="#" >拓展功能1</a></li>
+                    <li><a href="#" >拓展功能2</a></li>
+                    <li><a href="#" >拓展功能3</a></li>
+                    <li><a href="#" >拓展功能4</a></li>
+                    <li><a href="#" >拓展功能5</a></li>
                   </ul>
 
                   <div class="sm_slider sm_slider1">
@@ -129,14 +109,14 @@
                             <ul>
                               <li>
                                 <div class="sm_slider_inner">
-                                  <div class="txt1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.</div>
-                                  <div class="txt2">George Smith</div>
+                                  <div class="txt1">一路邮我</div>
+                                  <div class="txt2">邮电</div>
                                 </div>
                               </li>
                               <li>
                                 <div class="sm_slider_inner">
-                                  <div class="txt1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.</div>
-                                  <div class="txt2">Adam Parker</div>
+                                  <div class="txt1">富强 民主 文明 和谐 自由 平等 公正 法制 爱国 敬业 友善</div>
+                                  <div class="txt2">社会主义核心价值观</div>
                                 </div>
                               </li>
                             </ul>
@@ -192,25 +172,11 @@
                                   <div class="txt3 clearfix">
                                     <div class="left_side">
                                       价格：<div class="price" th:text="${item.price}"></div>
-                                      星级：<div class="nums" th:text="${item.price}"></div>
+                                      星级：<div class="star" th:text="${item.star}"></div>
                                     </div>
                                     <!--<div class="right_side"><a href="#" class="btn-default btn1" onclick="delcfm();">查看详情</a></div>-->
                                   </div>
                                 </div>
-                                <!--<figure>
-                                  <ul class="social clearfix">
-                                    <li th:each="price,priceStat : ${apidata.priceList}">
-                                      <span th:text="${price.type}"></span>
-                                      <ul class="social clearfix">
-                                        <li th:each="priceData,priceDataStat : ${price.priceDataList}">
-                                          <span th:text="${priceData.TicketName}"></span>
-                                          <span th:text="${priceData.Amount}"></span>
-                                          <span th:text="${priceData.AmountAdvice}"></span>
-                                        </li>
-                                      </ul>
-                                    </li>
-                                  </ul>
-                                </figure>-->
                               </div>
                             </div>
                             <div class="modal-footer">
@@ -229,22 +195,6 @@
                       <li class="next"><a th:if="${not page.isLast()}" th:href="@{/resHotel/view(start=${page.number+1})}">下一页</a></li>
                     </ul>
                   </div>
-                  <!--<div class="pager_wrapper">
-                    <ul class="pager clearfix">
-                      <li class="prev"><a href="#">Previous</a></li>
-                      <li class="li"><a href="#">1</a></li>
-                      <li class="active"><a href="#">2</a></li>
-                      <li class="li"><a href="#">3</a></li>
-                      <li class="li"><a href="#">4</a></li>
-                      <li class="li"><a href="#">5</a></li>
-                      <li class="li"><a href="#">6</a></li>
-                      <li class="li"><a href="#">7</a></li>
-                      <li class="li"><a href="#">8</a></li>
-                      <li class="li"><a href="#">9</a></li>
-                      <li class="li"><a href="#">10</a></li>
-                      <li class="next"><a href="#">Next</a></li>
-                    </ul>
-                  </div>-->
                 </div>
               </div>
             </div>
@@ -259,7 +209,7 @@
 <div class="bot2_wrapper">
   <div class="container">
     <div class="left_side">
-      Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href=""></a>
+      关于小鹏<a target="_blank" href=""></a>
     </div>
     <div class="right_side"></div>
   </div>

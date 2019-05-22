@@ -115,7 +115,6 @@ public class HotelServiceImpl implements HotelService {
             // 解析HTTP请求消息头
             List<FileItem> itemList=upload.parseRequest(request);
             System.out.println(itemList.size());
-            //String uploadPathTemp = uploadPath +"\\"+ DateUtils.yyyyMMdd(new Date());
             String uploadPathTemp = path;
             File file1 =  new File(uploadPathTemp);
             if( !file1 .isDirectory()){
