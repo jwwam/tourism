@@ -28,10 +28,10 @@
 # 在线查询景点功能的修复（Showapi的修复）
 以下关于第三方Showapi的替换使用由 @会牧阳的小黑鱼(qq:1757140904) 提供参考：  
 注：该文档只针对旅游项目！！！！！！！！   
-##第一步：了解showAPI的定义，推荐文章  
+## 第一步：了解showAPI的定义，推荐文章  
 https://blog.csdn.net/weixin_36413887/article/details/79713234  
-##第二步：看了上面的文章后就需要注册账号，获取自己的专属ID和秘钥  
-##第三步：进入https://www.showapi.com/api/view/268/1  点击 接口使用    
+## 第二步：看了上面的文章后就需要注册账号，获取自己的专属ID和秘钥  
+## 第三步：进入https://www.showapi.com/api/view/268/1  点击 接口使用    
 ![](https://github.com/jwwam/tourism/blob/master/src/main/webapp/images/showapi1.png)   
 接着如上图所示选择试用套餐  点击申请  
 最后一步：在旅游项目中找到 ApiData这个类 ，替换用自己的id和秘钥  
