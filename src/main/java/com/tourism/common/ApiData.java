@@ -1,18 +1,13 @@
 package com.tourism.common;
 
 import com.show.api.ShowApiRequest;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ApiData {
 
-    @Value("#{configProperties['showApi.url']}")
-    private String showApiUrl;
-    @Value("#{configProperties['showApi.appid']}")
-    private String showApiAppid;
-    @Value("#{configProperties['showApi.appSecret']}")
-    private String showApiAppSecret;
 
-    public String getApiData(String keyword){
+    public String getApiData(String keyword,String showApiUrl,String showApiAppid,String showApiAppSecret){
         String res = new ShowApiRequest(showApiUrl, showApiAppid, showApiAppSecret)
                 .addTextPara("keyword",keyword)
                 .addTextPara("proId","")

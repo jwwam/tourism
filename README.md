@@ -90,7 +90,10 @@ https://blog.csdn.net/weixin_36413887/article/details/79713234
 ![](https://github.com/jwwam/tourism/blob/master/src/main/webapp/images/showapi1.png)   
 接着如上图所示选择试用套餐  点击申请  
 最后一步：在旅游项目中找到 ApiData这个类 ，替换用自己的id和秘钥  
-![](https://github.com/jwwam/tourism/blob/master/src/main/webapp/images/showapi2.png)   
+![](https://github.com/jwwam/tourism/blob/master/src/main/webapp/images/showapi2.png)  
+注意：新版本已实现自动化配置showapi   
+如图在配置文件中修改为自己注册的信息即可  
+![](https://github.com/jwwam/tourism/blob/master/src/main/webapp/images/showapi3.png)  
 测试：在首页景点查询模块  输入地名，然后看有没有景点页面显示   
 
 # 联系QQ:824247231  

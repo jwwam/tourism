@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<title>Home</title>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Your description"/>
+<meta name="keywords" content="Your keywords"/>
+<meta name="author" content="Your name"/>
+
+</head>
+<body class="front">
+
+<div id="main">
+  <!-- head 头部 -->
+  <div id="head" th:include="common/index_header :: copy"></div>
+
+<div id="slider_wrapper">
+  <div class="container">
+    <div id="slider_inner" style="color: red;font-size: 20px;: " th:text="${error}">
+    </div>
+  </div>
+</div>
+
+  <div class="bot2_wrapper">
+    <div class="container">
+      <div class="left_side">
+        Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href=""></a>
+      </div>
+      <div class="right_side"></div>
+    </div>
+  </div>
+
+</div>
+
+<script src="/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" src="../componets/business/search.js" ></script>
+</body>
+</html>
