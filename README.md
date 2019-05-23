@@ -6,6 +6,11 @@
 @blackfish  
 
 
+### 2019/5/22 
+@jwwam  
+自动化配置showapi  
+增加默认Windows和Mac版本logback日志配置文件    
+
 ### 2019/4/27  
 @jwwam  
 修复后台景点列表显示错位  
