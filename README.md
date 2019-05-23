@@ -92,7 +92,7 @@ https://blog.csdn.net/weixin_36413887/article/details/79713234
 最后一步：在旅游项目中找到 ApiData这个类 ，替换用自己的id和秘钥  
 ![](https://github.com/jwwam/tourism/blob/master/src/main/webapp/images/showapi2.png)  
 注意：新版本已实现自动化配置showapi   
-如图在配置文件中修改为自己注册的信息即可  
+如图在配置文件中修改为自己注册的信息即可，无需再修改ApiData类  
 ![](https://github.com/jwwam/tourism/blob/master/src/main/webapp/images/showapi3.png)  
 测试：在首页景点查询模块  输入地名，然后看有没有景点页面显示   
 
