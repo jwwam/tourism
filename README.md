@@ -6,8 +6,8 @@
 默认使用MySql5.X版本，若为更高版本需修改pom连接池的配置  
 若使用MySql8.X版本请注意
 1.替换pom包的mysql版本(版本号以自己安装的为准)和连接池版本相关配置  
-'''
-<dependency>
+```
+<dependency>  
     <groupId>mysql</groupId>
     <artifactId>mysql-connector-java</artifactId>
     <version>8.0.11</version>
@@ -17,9 +17,9 @@
     <artifactId>druid</artifactId>
     <version>1.1.10</version>
 </dependency>
-'''  
+```
 2.替换application.properties中的mysql8.x版本驱动  
-将'''jdbc.driver=com.mysql.jdbc.Driver'''替换为'''jdbc.driver=com.mysql.cj.jdbc.Driver'''  
+将```jdbc.driver=com.mysql.jdbc.Driver```替换为```jdbc.driver=com.mysql.cj.jdbc.Driver```  
 
 # 启动后访问地址  
 首页访问地址：http://localhost:8080/tourism/base/index  
