@@ -4,7 +4,7 @@
 	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
        <filter class="ch.qos.logback.core.filter.EvaluatorFilter">
             <evaluator> 
-                <expression>return message.contains("com.blog");</expression>
+                <expression>return message.contains("com.tourism");</expression>
             </evaluator>
             <OnMismatch>NEUTRAL</OnMismatch>
             <OnMatch>DENY</OnMatch>
