@@ -38,7 +38,7 @@ bug修复
 推荐使用Idea或eclipse启动项目，使用Tomcat部署  
 项目启动后会自动创建表，需要先在MySQL新建一个“tourism”数据库   
 默认使用MySql5.X版本，若为更高版本需修改pom连接池的配置  
-若使用MySql8.X版本请注意
+若使用MySql8.X版本请注意  
 1.替换pom包的mysql版本(版本号以自己安装的为准)和连接池版本相关配置  
 ```
 <dependency>  
@@ -89,4 +89,3 @@ https://blog.csdn.net/weixin_36413887/article/details/79713234
 测试：在首页景点查询模块  输入地名，然后看有没有景点页面显示   
 
 # 联系QQ:824247231  
-test
