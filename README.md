@@ -1,3 +1,5 @@
+# 本人已对该项目重构，更新升级后的版本请移步：[这里](https://github.com/jwwam/tourismPro)，当然本项目依旧是可以使用的，只是本人已不再维护(*^_^*)  
+
 # tourism  
 项目栈：SpringMVC SpringDataJPA MySQL    
 ## 注意：  
